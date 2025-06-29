@@ -75,6 +75,25 @@
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
+        
+        /* Custom Calendly styling */
+        .calendly-container {
+            background: linear-gradient(135deg, rgba(255,182,193,0.05) 0%, rgba(0,206,209,0.05) 100%);
+            border-radius: 1.5rem;
+            padding: 2rem;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .calendly-inline-widget {
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Override Calendly default styles */
+        .calendly-inline-widget iframe {
+            border-radius: 1rem !important;
+        }
     </style>
 </head>
 <body class="bg-white text-gray-800">
@@ -220,13 +239,16 @@
     <!-- Calendly Section -->
     <section class="py-16 px-6 bg-gray-50">
         <div class="max-w-4xl mx-auto text-center fade-up">
-            <h2 class="text-3xl font-extrabold mb-4">Want to see ListingPal in action?</h2>
+            <h2 class="text-3xl font-extrabold mb-4">Book Your Strategy Session</h2>
             <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-                Book a 15-minute coffee chat with our founder to see how ListingPal can transform your listing process.
+                Schedule a personalized 30-minute session to see how ListingPal can transform your listing process and boost your sales.
             </p>
-            <button id="bookDemoBtn" class="bg-secondary hover:bg-opacity-90 text-white font-bold px-8 py-4 rounded-full transition-all">
-                Book a Live Demo
-            </button>
+            <div class="calendly-container fade-up">
+                <!-- Calendly inline widget begin -->
+                <div class="calendly-inline-widget" data-url="https://calendly.com/listingpalinfo/30min?hide_event_type_details=1&hide_gdpr_banner=1" style="min-width:320px;height:700px;"></div>
+                <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+                <!-- Calendly inline widget end -->
+            </div>
         </div>
     </section>
 
@@ -397,24 +419,6 @@
         </div>
     </footer>
 
-    <!-- Calendly Modal -->
-    <div id="calendlyModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-white rounded-xl max-w-2xl w-full max-h-[90vh] overflow-auto">
-            <div class="p-4 flex justify-between items-center border-b">
-                <h3 class="text-lg font-bold">Book a Demo</h3>
-                <button id="closeCalendly" class="text-gray-500 hover:text-gray-700">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                </button>
-            </div>
-            <div class="p-4">
-                <!-- Calendly inline widget -->
-                <div class="calendly-inline-widget" data-url="https://calendly.com/wally-listingpal/15min?utm_source=landing" style="min-width:320px;height:630px;"></div>
-            </div>
-        </div>
-    </div>
-
     <script>
         // MailerLite API configuration
         const MAILERLITE_API_KEY = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI0IiwianRpIjoiNjI4OTJlYjhmMjk5OGQ0NzJmMDcwY2M0Njc3NmY4NGZiYWQzZWFhNzFlYmYxMDI0ZjU4ZWQxNWMxMTg5YTE0ZTQwYzM1ODc3MjhjZjA4YzciLCJpYXQiOjE3NTExNTU0MjcuNzcyNTQ5LCJuYmYiOjE3NTExNTU0MjcuNzcyNTUzLCJleHAiOjQ5MDY4MjkwMjcuNzY3OTk2LCJzdWIiOiIxNjQxMjgzIiwic2NvcGVzIjpbXX0.Kef8kasBrH3q4leNLYWifHnRNbQeMUvtIbKzfZ1hVcNYTpfpIbs0S5LzqhlBp0JAoOXslyAG0HycWRKWtrqvHEtgyCXB8B9GkK5mG-ZO6wrd6bmUZOCziVYYzLlgu7vKQECoqBmmosujHWrSt5OJ1XcxfWyDhzszQHszysKwxzBJ2tyW0is4p-2l-5VcSQ3bauSNmCvGXjApwmdXBBzguYWIKZ1qBw9JH0iLd6qS3DuQdxCocCnumPmYOskDB2kubbBzBEhK4RDhr0sMjDXJ_ikOer_pVNV9xTIAyuKnV6yDtcvolLXsKnYZIndgl6OZ0uud16IQqiXnAlVf6WZlpwqkLmOeVeDPyqWpO8Ic3-3KPsJs4aK7P-f4T0Up1nDR63Q9rY2hCPRCIc0nlmEiiXR4RdUuCbeHUcoUmJUkornc4NJldbKl8ebYhUjf8-Vrp7mImwDW813q0GcMONLFAUqt_8DXb0BDWfl9rYjUsQFZsxWe1egqpCtth9TVpwVhUNZZdLmeaf-9FKhNQSjnAlHrS7Rb3ZHB4sRseJ6NhM5jd6Ke1i6RmvZVxkhaSKt247ptTOv1ToxYyclCgVUIiqLtdeeWUT0AXZ-Nm475XmlBBowsv7xtxAxNUknO99tmDGzxh3lCQ-KwDPLDM15xfpYBvtpJpjr37uuxfQyExaA'; // Replace with your actual API key
@@ -491,25 +495,6 @@
                 submitText.textContent = 'Send Demo';
                 submitSpinner.classList.add('hidden');
             }
-        });
-
-        // Calendly modal
-        document.getElementById('bookDemoBtn').addEventListener('click', function() {
-            document.getElementById('calendlyModal').classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
-            
-            // Load Calendly script if not already loaded
-            if (!document.querySelector('script[src="https://assets.calendly.com/assets/external/widget.js"]')) {
-                const script = document.createElement('script');
-                script.src = 'https://assets.calendly.com/assets/external/widget.js';
-                script.async = true;
-                document.body.appendChild(script);
-            }
-        });
-
-        document.getElementById('closeCalendly').addEventListener('click', function() {
-            document.getElementById('calendlyModal').classList.add('hidden');
-            document.body.style.overflow = '';
         });
 
         // FAQ toggle
