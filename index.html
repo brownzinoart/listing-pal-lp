@@ -94,6 +94,8 @@
             border-radius: 1rem;
             overflow: hidden;
             box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            margin-left: auto;
+            margin-right: auto;
         }
         
         /* Override Calendly default styles */
@@ -112,6 +114,12 @@
         @media (min-width: 768px) {
             .calendly-container {
                 padding: 1rem;
+            }
+        }
+        @media (min-width: 640px) {
+            .calendly-inline-widget {
+                min-width: 600px;
+                max-width: 100%;
             }
         }
         .calendly-section-bg {
