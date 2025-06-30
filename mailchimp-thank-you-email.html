@@ -75,15 +75,17 @@
         
         .beta-badge {
             display: inline-block;
-            background-color: rgba(255,255,255,0.9);
-            color: #FFB6C1;
-            font-size: 12px;
-            font-weight: 800;
-            padding: 6px 16px;
+            background: linear-gradient(135deg, #FFB6C1 0%, #00CED1 100%);
+            color: white;
+            font-size: 16px;
+            font-weight: 900;
+            padding: 12px 24px;
             border-radius: 50px;
-            margin-top: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            border: 2px solid rgba(255,255,255,0.3);
+            margin-top: 20px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            border: 3px solid rgba(255,255,255,0.4);
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
         
         /* Content sections */
@@ -108,6 +110,30 @@
             line-height: 1.5;
         }
         
+        .video-cta {
+            text-align: center;
+            margin: 40px 0;
+        }
+        
+        .video-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #00CED1 0%, #FFB6C1 100%);
+            color: white;
+            text-decoration: none;
+            font-weight: 800;
+            padding: 20px 40px;
+            border-radius: 50px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0,206,209,0.3);
+            border: 3px solid rgba(255,255,255,0.2);
+        }
+        
+        .video-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0,206,209,0.4);
+        }
+        
         .divider {
             text-align: center;
             margin: 40px 0;
@@ -127,10 +153,29 @@
             margin-bottom: 25px;
             border: 2px solid rgba(255,182,193,0.1);
             transition: transform 0.3s ease;
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
         }
         
         .benefit-item:hover {
             transform: translateY(-5px);
+        }
+        
+        .benefit-icon {
+            flex-shrink: 0;
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, #FFB6C1 0%, #00CED1 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 4px;
+        }
+        
+        .benefit-content {
+            flex: 1;
         }
         
         .benefit-title {
@@ -245,6 +290,13 @@
             
             .benefit-item {
                 padding: 25px 20px;
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+            
+            .benefit-icon {
+                margin: 0 auto;
             }
             
             .cta-section {
@@ -252,9 +304,14 @@
                 padding: 40px 25px;
             }
             
-            .cta-button {
+            .cta-button, .video-button {
                 padding: 18px 35px;
                 font-size: 16px;
+            }
+            
+            .beta-badge {
+                font-size: 14px;
+                padding: 10px 20px;
             }
         }
     </style>
@@ -265,11 +322,8 @@
         <!-- Header -->
         <div class="header">
             <div class="logo-container">
-                <!-- ListingPal Logo SVG - Larger and Centered -->
-                <svg width="280" height="70" viewBox="0 0 934 292" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M189.172 224.429C175.219 228.145 159.881 228.945 148.062 230.77C109.332 236.75 109.536 292.858 164.816 290.973C173.519 290.676 181.644 289.539 189.172 287.671C264.782 268.904 280.314 176.434 219.105 122.063C245.102 114.677 264.151 90.7816 264.202 62.4293C278.509 61.6618 294.375 53.8304 299.253 28.7465C266.151 36.0534 242.272 0.214355 202.101 0.214355C167.803 0.214355 139.998 28.0186 139.998 62.3171C139.998 71.4002 141.948 80.0283 145.454 87.8046C77.8592 79.1021 2.40666 130.173 0.266537 201.582C-1.00254 243.926 22.9772 285.473 67.9075 290.827C69.0606 290.965 70.2286 291.078 71.4096 291.167C117.422 294.64 127.259 241.793 88.4085 232.299C81.1716 230.53 74.2789 229.12 67.9075 227.271V183.536H54.7623C52.5341 183.536 50.6339 182.241 49.8187 180.167C49.0034 178.094 49.5124 175.852 51.1429 174.335L124.92 105.673C126.964 103.771 130.114 103.771 132.158 105.673L205.936 174.335C207.567 175.852 208.076 178.094 207.261 180.167C206.446 182.241 204.545 183.536 202.317 183.536H189.172V224.429Z" fill="white"/>
-                    <path d="M310.534 245.421H364.749V229.245H330.457V162.984H310.534V245.421ZM384.115 245.421H403.806V183.598H384.115V245.421ZM393.989 176.394C399.58 176.394 404.095 172.168 404.095 166.98C404.095 161.774 399.58 157.586 393.989 157.586C388.418 157.586 383.884 161.774 383.884 166.98C383.884 172.168 388.418 176.394 393.989 176.394ZM479.327 202.464C478.29 190.246 468.261 182.792 451.509 182.792C434.775 182.792 424.094 190.073 424.19 202.464C424.094 211.974 430.184 218.083 442.537 220.389L453.315 222.444C458.444 223.443 460.769 225.057 460.846 227.785C460.769 230.897 457.311 232.934 452.277 232.934C446.687 232.934 442.902 230.532 442.057 226.018L422.615 226.498C424.017 238.736 434.526 246.593 452.2 246.593C468.741 246.593 480.768 238.332 480.864 225.614C480.768 216.604 474.812 211.244 462.498 208.881L450.587 206.614C445.361 205.576 443.67 203.713 443.709 201.35C443.67 198.199 447.321 196.278 451.874 196.278C457.061 196.278 460.692 199.045 461.249 202.964L479.327 202.464ZM534.483 183.598H523.341V168.786H503.649V183.598H495.484V198.084H503.649V228.15C503.534 240.676 511.66 246.958 525.55 246.305C530.295 246.074 533.715 245.095 535.617 244.537L532.639 230.321C531.794 230.532 529.815 230.936 528.316 230.936C525.147 230.936 523.341 229.649 523.341 225.979V198.084H534.483V183.598ZM553.618 245.421H573.291V183.598H553.618V245.421ZM563.474 176.394C569.064 176.394 573.579 172.168 573.579 166.98C573.579 161.774 569.064 157.586 563.474 157.586C557.921 157.586 553.368 161.774 553.368 166.98C553.368 172.168 557.921 176.394 563.474 176.394ZM614.519 210.168C614.557 203.117 618.668 198.929 624.912 198.929C631.156 198.929 634.844 203.041 634.806 209.88V245.421H654.498V206.018C654.536 192.09 646.045 182.792 633.039 182.792C623.894 182.792 616.978 187.422 614.25 194.952H613.558V183.598H594.846V245.421H614.519V210.168ZM704.621 269.378C723.256 269.378 735.974 260.886 735.974 245.671V183.598H716.378V194.184H715.802C713.439 188.497 708.04 182.792 698.3 182.792C685.371 182.792 673.671 192.724 673.671 214.433C673.671 235.431 684.814 244.576 698.377 244.576C707.483 244.576 713.554 240.349 715.898 234.624H716.57V245.498C716.57 252.914 711.748 255.719 705.139 255.719C698.819 255.719 695.034 253.317 693.997 250.013L675.362 251.05C676.802 261.367 686.985 269.378 704.621 269.378ZM705.216 230.244C697.935 230.244 693.862 224.327 693.862 214.433C693.862 204.558 697.897 198.161 705.216 198.161C712.421 198.161 716.609 204.405 716.609 214.433C712.421 198.161 716.609 204.405 716.609 214.433C716.609 224.365 712.382 230.244 705.216 230.244ZM757.568 245.421H777.49V219.812H791.015C809.881 219.812 821.677 208.631 821.677 191.533C821.677 174.569 810.131 162.984 791.611 162.984H757.568V245.421ZM777.49 204.116V179.045H787.307C796.241 179.045 801.024 183.867 801.024 191.533C801.024 199.141 796.241 204.116 787.307 204.116H777.49ZM855.777 246.459C864.403 246.459 870.359 243.135 873.74 236.814H874.22V245.421H892.74V203.406C892.74 190.323 881.098 182.792 865.364 182.792C848.746 182.792 839.332 191.168 837.757 202.426L855.912 203.079C856.757 199.141 860.004 196.72 865.21 196.72C870.032 196.72 873.087 199.045 873.087 203.194V203.406C873.087 207.19 868.995 207.978 858.448 208.919C845.922 209.957 835.451 214.587 835.451 228.265C835.451 240.503 843.943 246.459 855.777 246.459ZM861.867 233.587C857.314 233.587 854.086 231.416 854.086 227.305C854.086 223.328 857.237 220.907 862.828 220.062C866.497 219.543 870.993 218.736 873.221 217.564V223.443C873.221 229.476 868.149 233.587 861.867 233.587ZM933.488 162.984H913.796V245.421H933.488V162.984Z" fill="white"/>
-                </svg>
+                <!-- Header Logo PNG - MailChimp hosted black logo -->
+                <img src="https://mcusercontent.com/1ab0d36c6a26a981d20907640/images/fbf958b2-b5f2-d0f4-b480-9498c57aa68a.png" alt="ListingPal" width="200" height="160" style="display: block; margin: 0 auto; border: 0; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic;">
                 <div class="beta-badge">BETA</div>
             </div>
         </div>
@@ -278,8 +332,12 @@
         <div class="content-section">
             <h1 class="hero-title">Thank You for Your Interest in ListingPal!</h1>
             <p class="hero-subtitle">
-                As promised, here's a detailed look at how we're revolutionizing real estate marketing. Ready to see what makes us different?
+                As promised, here is the deep dive video into ListingPal. Get ready to see how we're changing the game for real estate marketing.
             </p>
+            
+            <div class="video-cta">
+                <a href="#" class="video-button">Watch the Deep Dive Video</a>
+            </div>
             
             <div class="divider">• • •</div>
             
@@ -287,40 +345,59 @@
             <div class="benefits-grid">
                 <!-- Benefit 1 -->
                 <div class="benefit-item">
-                    <h3 class="benefit-title">Skip the Learning Curve</h3>
-                    <p class="benefit-description">While others spend months figuring out AI prompts and tools, you'll be generating professional campaigns from day one. We've done the heavy lifting—you get the results.</p>
+                    <div class="benefit-icon">
+                        <svg width="24" height="24" fill="none" stroke="white" viewBox="0 0 24 24" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                    </div>
+                    <div class="benefit-content">
+                        <h3 class="benefit-title">Skip the Learning Curve</h3>
+                        <p class="benefit-description">While others spend months figuring out AI prompts and tools, you'll be generating professional campaigns from day one. We've done the heavy lifting—you get the results.</p>
+                    </div>
                 </div>
 
                 <!-- Benefit 2 -->
                 <div class="benefit-item">
-                    <h3 class="benefit-title">Market-Tested Content</h3>
-                    <p class="benefit-description">Our campaigns aren't just AI-generated—they're trained on high-converting real estate copy that actually sells properties. You're getting proven formulas, not experiments.</p>
+                    <div class="benefit-icon">
+                        <svg width="24" height="24" fill="none" stroke="white" viewBox="0 0 24 24" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <div class="benefit-content">
+                        <h3 class="benefit-title">Market-Tested Content</h3>
+                        <p class="benefit-description">Our campaigns aren't just AI-generated—they're trained on high-converting real estate copy that actually sells properties. You're getting proven formulas, not experiments.</p>
+                    </div>
                 </div>
 
                 <!-- Benefit 3 -->
                 <div class="benefit-item">
-                    <h3 class="benefit-title">First-Mover Advantage</h3>
-                    <p class="benefit-description">You're seeing this in BETA for a reason. Early adopters will dominate their markets while competitors are still doing things the old way. This is your head start.</p>
+                    <div class="benefit-icon">
+                        <svg width="24" height="24" fill="none" stroke="white" viewBox="0 0 24 24" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <div class="benefit-content">
+                        <h3 class="benefit-title">First-Mover Advantage</h3>
+                        <p class="benefit-description">You're seeing this in BETA for a reason. Early adopters will dominate their markets while competitors are still doing things the old way. This is your head start.</p>
+                    </div>
                 </div>
             </div>
         </div>
 
         <!-- CTA Section -->
         <div class="cta-section">
-            <h2 class="cta-title">Ready to See ListingPal in Action?</h2>
+            <h2 class="cta-title">Want to See ListingPal in Action?</h2>
             <p class="cta-subtitle">
-                Let's hop on a call and I'll show you exactly how to transform your listing process and dominate your market.
+                Bring an address, I'll bring ListingPal, and we can give it a spin together over Zoom or coffee. Let's see what this thing can really do for your business.
             </p>
-            <a href="https://calendly.com/listingpalinfo/30min" class="cta-button">Book Your Strategy Session</a>
+            <a href="https://calendly.com/listingpalinfo/30min" class="cta-button">Let's Test Drive ListingPal</a>
         </div>
 
         <!-- Footer -->
         <div class="footer">
             <div class="footer-logo">
-                <svg width="140" height="35" viewBox="0 0 934 292" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M189.172 224.429C175.219 228.145 159.881 228.945 148.062 230.77C109.332 236.75 109.536 292.858 164.816 290.973C173.519 290.676 181.644 289.539 189.172 287.671C264.782 268.904 280.314 176.434 219.105 122.063C245.102 114.677 264.151 90.7816 264.202 62.4293C278.509 61.6618 294.375 53.8304 299.253 28.7465C266.151 36.0534 242.272 0.214355 202.101 0.214355C167.803 0.214355 139.998 28.0186 139.998 62.3171C139.998 71.4002 141.948 80.0283 145.454 87.8046C77.8592 79.1021 2.40666 130.173 0.266537 201.582C-1.00254 243.926 22.9772 285.473 67.9075 290.827C69.0606 290.965 70.2286 291.078 71.4096 291.167C117.422 294.64 127.259 241.793 88.4085 232.299C81.1716 230.53 74.2789 229.12 67.9075 227.271V183.536H54.7623C52.5341 183.536 50.6339 182.241 49.8187 180.167C49.0034 178.094 49.5124 175.852 51.1429 174.335L124.92 105.673C126.964 103.771 130.114 103.771 132.158 105.673L205.936 174.335C207.567 175.852 208.076 178.094 207.261 180.167C206.446 182.241 204.545 183.536 202.317 183.536H189.172V224.429Z" fill="#9ca3af"/>
-                    <path d="M310.534 245.421H364.749V229.245H330.457V162.984H310.534V245.421ZM384.115 245.421H403.806V183.598H384.115V245.421ZM393.989 176.394C399.58 176.394 404.095 172.168 404.095 166.98C404.095 161.774 399.58 157.586 393.989 157.586C388.418 157.586 383.884 161.774 383.884 166.98C383.884 172.168 388.418 176.394 393.989 176.394ZM479.327 202.464C478.29 190.246 468.261 182.792 451.509 182.792C434.775 182.792 424.094 190.073 424.19 202.464C424.094 211.974 430.184 218.083 442.537 220.389L453.315 222.444C458.444 223.443 460.769 225.057 460.846 227.785C460.769 230.897 457.311 232.934 452.277 232.934C446.687 232.934 442.902 230.532 442.057 226.018L422.615 226.498C424.017 238.736 434.526 246.593 452.2 246.593C468.741 246.593 480.768 238.332 480.864 225.614C480.768 216.604 474.812 211.244 462.498 208.881L450.587 206.614C445.361 205.576 443.67 203.713 443.709 201.35C443.67 198.199 447.321 196.278 451.874 196.278C457.061 196.278 460.692 199.045 461.249 202.964L479.327 202.464ZM534.483 183.598H523.341V168.786H503.649V183.598H495.484V198.084H503.649V228.15C503.534 240.676 511.66 246.958 525.55 246.305C530.295 246.074 533.715 245.095 535.617 244.537L532.639 230.321C531.794 230.532 529.815 230.936 528.316 230.936C525.147 230.936 523.341 229.649 523.341 225.979V198.084H534.483V183.598ZM553.618 245.421H573.291V183.598H553.618V245.421ZM563.474 176.394C569.064 176.394 573.579 172.168 573.579 166.98C573.579 161.774 569.064 157.586 563.474 157.586C557.921 157.586 553.368 161.774 553.368 166.98C553.368 172.168 557.921 176.394 563.474 176.394ZM614.519 210.168C614.557 203.117 618.668 198.929 624.912 198.929C631.156 198.929 634.844 203.041 634.806 209.88V245.421H654.498V206.018C654.536 192.09 646.045 182.792 633.039 182.792C623.894 182.792 616.978 187.422 614.25 194.952H613.558V183.598H594.846V245.421H614.519V210.168ZM704.621 269.378C723.256 269.378 735.974 260.886 735.974 245.671V183.598H716.378V194.184H715.802C713.439 188.497 708.04 182.792 698.3 182.792C685.371 182.792 673.671 192.724 673.671 214.433C673.671 235.431 684.814 244.576 698.377 244.576C707.483 244.576 713.554 240.349 715.898 234.624H716.57V245.498C716.57 252.914 711.748 255.719 705.139 255.719C698.819 255.719 695.034 253.317 693.997 250.013L675.362 251.05C676.802 261.367 686.985 269.378 704.621 269.378ZM705.216 230.244C697.935 230.244 693.862 224.327 693.862 214.433C693.862 204.558 697.897 198.161 705.216 198.161C712.421 198.161 716.609 204.405 716.609 214.433C712.421 198.161 716.609 204.405 716.609 214.433C716.609 224.365 712.382 230.244 705.216 230.244ZM757.568 245.421H777.49V219.812H791.015C809.881 219.812 821.677 208.631 821.677 191.533C821.677 174.569 810.131 162.984 791.611 162.984H757.568V245.421ZM777.49 204.116V179.045H787.307C796.241 179.045 801.024 183.867 801.024 191.533C801.024 199.141 796.241 204.116 787.307 204.116H777.49ZM855.777 246.459C864.403 246.459 870.359 243.135 873.74 236.814H874.22V245.421H892.74V203.406C892.74 190.323 881.098 182.792 865.364 182.792C848.746 182.792 839.332 191.168 837.757 202.426L855.912 203.079C856.757 199.141 860.004 196.72 865.21 196.72C870.032 196.72 873.087 199.045 873.087 203.194V203.406C873.087 207.19 868.995 207.978 858.448 208.919C845.922 209.957 835.451 214.587 835.451 228.265C835.451 240.503 843.943 246.459 855.777 246.459ZM861.867 233.587C857.314 233.587 854.086 231.416 854.086 227.305C854.086 223.328 857.237 220.907 862.828 220.062C866.497 219.543 870.993 218.736 873.221 217.564V223.443C873.221 229.476 868.149 233.587 861.867 233.587ZM933.488 162.984H913.796V245.421H933.488V162.984Z" fill="#9ca3af"/>
-                </svg>
+                <!-- Footer Logo PNG - MailChimp hosted gradient logo -->
+                <img src="https://mcusercontent.com/1ab0d36c6a26a981d20907640/images/de42de9a-feea-567c-5d38-7915d18768e9.png" alt="ListingPal" width="140" height="44" style="display: block; margin: 0 auto; border: 0; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic;">
             </div>
             <p class="footer-text">From address to campaign, in 60 seconds</p>
             <div class="footer-links">
