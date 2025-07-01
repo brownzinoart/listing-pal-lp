@@ -653,11 +653,18 @@
                 if (response.ok) {
                     successMessage.classList.remove('hidden');
                     emailInput.value = '';
+                } else if (response.status === 502) {
+                    // Server configuration issue
+                    errorMessage.innerHTML = '<p>Service temporarily unavailable. Please try again later or contact support.</p>';
+                    errorMessage.classList.remove('hidden');
                 } else {
-                    throw new Error('Failed to subscribe');
+                    // Other errors
+                    errorMessage.innerHTML = '<p>Something went wrong. Please try again.</p>';
+                    errorMessage.classList.remove('hidden');
                 }
             } catch (error) {
                 console.error('Error:', error);
+                errorMessage.innerHTML = '<p>Network error. Please check your connection and try again.</p>';
                 errorMessage.classList.remove('hidden');
             } finally {
                 // Reset button state
