@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="x-apple-disable-message-reformatting">
+    <title>Your ListingPal Deep Dive is Here!</title>
+    
+    <!--[if mso]>
+    <noscript>
+        <xml>
+            <o:OfficeDocumentSettings>
+                <o:PixelsPerInch>96</o:PixelsPerInch>
+            </o:OfficeDocumentSettings>
+        </xml>
+    </noscript>
+    <![endif]-->
+    
+    <style>
+        /* Reset styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.7;
+            color: #374151;
+            background-color: #f9fafb;
+            margin: 0;
+            padding: 0;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+        }
+        
+        table {
+            border-collapse: collapse;
+            mso-table-lspace: 0pt;
+            mso-table-rspace: 0pt;
+        }
+        
+        img {
+            border: 0;
+            height: auto;
+            line-height: 100%;
+            outline: none;
+            text-decoration: none;
+            -ms-interpolation-mode: bicubic;
+            max-width: 100%;
+        }
+        
+        /* Container */
+        .email-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #FFB6C1 0%, #00CED1 100%);
+            padding: 50px 30px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .logo-container {
+            position: relative;
+            z-index: 2;
+            margin-bottom: 20px;
+        }
+        
+        .beta-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #FFB6C1 0%, #00CED1 100%);
+            color: white;
+            font-size: 16px;
+            font-weight: 900;
+            padding: 12px 24px;
+            border-radius: 50px;
+            margin-top: 20px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            border: 3px solid rgba(255,255,255,0.4);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* Content sections */
+        .content-section {
+            padding: 40px 30px;
+        }
+        
+        .hero-title {
+            font-size: 32px;
+            font-weight: 800;
+            color: #1f2937;
+            margin-bottom: 15px;
+            text-align: center;
+            line-height: 1.2;
+        }
+        
+        .hero-subtitle {
+            font-size: 20px;
+            color: #6b7280;
+            margin-bottom: 30px;
+            text-align: center;
+            line-height: 1.6;
+        }
+        
+        .video-cta {
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .video-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #00CED1 0%, #FFB6C1 100%);
+            color: white;
+            text-decoration: none;
+            font-weight: 800;
+            padding: 20px 40px;
+            border-radius: 50px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0,206,209,0.3);
+            border: 3px solid rgba(255,255,255,0.2);
+        }
+        
+        .video-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0,206,209,0.4);
+        }
+        
+        .divider {
+            text-align: center;
+            margin: 25px 0;
+            color: #d1d5db;
+            font-size: 18px;
+        }
+        
+        /* Benefits section */
+        .benefits-grid {
+            margin: 35px 0;
+        }
+        
+        .benefit-item {
+            background: linear-gradient(135deg, rgba(255,182,193,0.05) 0%, rgba(0,206,209,0.05) 100%);
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 20px;
+            border: 2px solid rgba(255,182,193,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .benefit-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .benefit-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, #FFB6C1 0%, #00CED1 100%);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px auto;
+        }
+        
+        .benefit-content {
+            text-align: center;
+        }
+        
+        .benefit-title {
+            font-size: 22px;
+            font-weight: 800;
+            color: #1f2937;
+            margin-bottom: 10px;
+        }
+        
+        .benefit-description {
+            font-size: 16px;
+            color: #6b7280;
+            line-height: 1.7;
+        }
+        
+        /* CTA Button */
+        .cta-section {
+            text-align: center;
+            padding: 40px 30px;
+            background: linear-gradient(135deg, rgba(255,182,193,0.1) 0%, rgba(0,206,209,0.1) 100%);
+            border-radius: 25px;
+            margin: 25px;
+            border: 3px solid rgba(255,182,193,0.2);
+        }
+        
+        .cta-title {
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 12px;
+            color: #1f2937;
+        }
+        
+        .cta-subtitle {
+            font-size: 18px;
+            color: #6b7280;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #00CED1 0%, #FFB6C1 100%);
+            color: white;
+            text-decoration: none;
+            font-weight: 800;
+            padding: 20px 40px;
+            border-radius: 50px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0,206,209,0.3);
+            border: 3px solid rgba(255,255,255,0.2);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0,206,209,0.4);
+        }
+        
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
+            color: #9ca3af;
+            padding: 40px 30px;
+            text-align: center;
+            font-size: 14px;
+        }
+        
+        .footer-logo {
+            margin-bottom: 20px;
+        }
+        
+        .footer-text {
+            margin-bottom: 25px;
+            font-size: 16px;
+            font-weight: 600;
+            color: #d1d5db;
+        }
+        
+        .footer-links {
+            margin-bottom: 25px;
+        }
+        
+        .footer-links a {
+            color: #9ca3af;
+            text-decoration: none;
+            margin: 0 20px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: #00CED1;
+        }
+        
+        .footer-tagline {
+            font-size: 12px;
+            opacity: 0.8;
+        }
+        
+        /* Responsive */
+        @media only screen and (max-width: 600px) {
+            .email-container {
+                border-radius: 0;
+                box-shadow: none;
+            }
+            
+            .header {
+                padding: 25px 20px;
+            }
+            
+            .content-section {
+                padding: 25px 20px;
+            }
+            
+            .hero-title {
+                font-size: 24px;
+                margin-bottom: 12px;
+            }
+            
+            .hero-subtitle {
+                font-size: 16px;
+                margin-bottom: 30px;
+                line-height: 1.6;
+            }
+            
+            .video-cta {
+                margin: 0 0 30px 0;
+            }
+            
+            .divider {
+                margin: 25px 0;
+            }
+            
+            .benefits-grid {
+                margin: 30px 0;
+            }
+            
+            .benefit-item {
+                padding: 20px 15px;
+                margin-bottom: 30px;
+            }
+            
+            .benefit-item table {
+                display: block !important;
+                width: 100% !important;
+            }
+            
+            .benefit-item td {
+                display: block !important;
+                width: 100% !important;
+                text-align: center !important;
+                padding: 0 !important;
+            }
+            
+            .benefit-icon {
+                margin: 0 auto 15px auto !important;
+            }
+            
+            .benefit-title {
+                font-size: 20px;
+                margin-bottom: 8px;
+                text-align: center !important;
+            }
+            
+            .benefit-description {
+                font-size: 14px;
+                line-height: 1.6;
+                text-align: center !important;
+            }
+            
+            .cta-section {
+                margin: 20px 10px 30px 10px;
+                padding: 25px 20px;
+            }
+            
+            .cta-title {
+                font-size: 24px;
+                margin-bottom: 10px;
+            }
+            
+            .cta-subtitle {
+                font-size: 16px;
+                margin-bottom: 20px;
+                line-height: 1.6;
+            }
+            
+            .cta-button, .video-button {
+                padding: 15px 30px;
+                font-size: 16px;
+                display: block;
+                width: 100%;
+                max-width: 280px;
+                margin: 0 auto;
+            }
+            
+            .beta-badge {
+                font-size: 12px;
+                padding: 8px 16px;
+            }
+            
+            .footer {
+                padding: 25px 20px;
+            }
+        }
+        
+        @media only screen and (max-width: 480px) {
+            .hero-title {
+                font-size: 22px;
+            }
+            
+            .hero-subtitle {
+                font-size: 15px;
+            }
+            
+            .cta-title {
+                font-size: 22px;
+            }
+            
+            .cta-subtitle {
+                font-size: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Main Container Table -->
+    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="background-color: #f9fafb;">
+        <tr>
+            <td align="center" style="padding: 20px 0;">
+                <!-- Email Container -->
+                <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="600" style="max-width: 600px; background-color: #ffffff; border-radius: 20px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
+                    
+                    <!-- Header Section -->
+                    <tr>
+                        <td style="background: linear-gradient(135deg, #FFB6C1 0%, #00CED1 100%); padding: 50px 30px; text-align: center;">
+                            <!-- Logo -->
+                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                <tr>
+                                    <td align="center" style="position: relative;">
+                                        <img src="https://mcusercontent.com/1ab0d36c6a26a981d20907640/images/fbf958b2-b5f2-d0f4-b480-9498c57aa68a.png" 
+                                             alt="ListingPal Logo" 
+                                             width="260" 
+                                             height="200" 
+                                             style="display: inline-block; border: 0; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; max-width: 100%; height: auto; vertical-align: top;">
+                                        <span style="display: inline-block; background: linear-gradient(135deg, #FFB6C1 0%, #00CED1 100%); color: white; font-size: 12px; font-weight: 900; padding: 6px 12px; border-radius: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.15); border: 2px solid rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 0.5px; margin-left: -30px; vertical-align: top;">BETA</span>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    
+                    <!-- Main Content Section -->
+                    <tr>
+                        <td style="padding: 40px 30px;">
+                            <!-- Hero Title -->
+                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                <tr>
+                                    <td align="center" style="padding-bottom: 0;">
+                                        <h1 style="font-size: 32px; font-weight: 800; color: #1f2937; margin: 0; line-height: 1.2;">Thank You for Your Interest in ListingPal!</h1>
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                            <!-- Spacer -->
+                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                <tr>
+                                    <td style="height: 30px; line-height: 1px; font-size: 1px;">&nbsp;</td>
+                                </tr>
+                            </table>
+                            
+                            <!-- Hero Subtitle -->
+                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                <tr>
+                                    <td align="center" style="padding-bottom: 0;">
+                                        <p style="font-size: 20px; color: #6b7280; margin: 0; line-height: 1.6;">As promised, here is the deep dive video into ListingPal. Get ready to see how we're changing the game for real estate marketing.</p>
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                            <!-- Spacer -->
+                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                <tr>
+                                    <td style="height: 40px; line-height: 1px; font-size: 1px;">&nbsp;</td>
+                                </tr>
+                            </table>
+                            
+                            <!-- Video CTA -->
+                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                <tr>
+                                    <td align="center" style="padding: 0;">
+                                        <a href="https://youtu.be/vAxzaD8tgYU" target="_blank" style="display: inline-block; background: linear-gradient(135deg, #00CED1 0%, #FFB6C1 100%); color: white; text-decoration: none; font-weight: 800; padding: 20px 40px; border-radius: 50px; font-size: 18px; box-shadow: 0 10px 30px rgba(0,206,209,0.3); border: 3px solid rgba(255,255,255,0.2);">Watch the Deep Dive Video</a>
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                            <!-- Spacer -->
+                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                <tr>
+                                    <td style="height: 35px; line-height: 1px; font-size: 1px;">&nbsp;</td>
+                                </tr>
+                            </table>
+                            
+                            <!-- Divider -->
+                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                <tr>
+                                    <td align="center" style="padding: 35px 0; color: #d1d5db; font-size: 18px; text-align: center;">• • •</td>
+                                </tr>
+                            </table>
+                            
+                            <!-- Benefits Grid -->
+                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                <!-- Benefit 1 -->
+                                <tr>
+                                    <td style="padding-bottom: 0;">
+                                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="background: linear-gradient(135deg, rgba(255,182,193,0.05) 0%, rgba(0,206,209,0.05) 100%); border-radius: 24px; border: 2px solid rgba(255,182,193,0.1); box-shadow: 0 4px 16px rgba(0,0,0,0.06);">
+                                            <tr>
+                                                <td style="padding: 25px; text-align: center;">
+                                                    <!-- Icon and Text Side by Side -->
+                                                    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                                        <tr>
+                                                            <td align="center" style="padding: 0 20px;">
+                                                                <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                                                    <tr>
+                                                                        <td align="center" style="width: 84px; vertical-align: middle; padding-right: 30px;">
+                                                                            <div style="width: 64px; height: 64px; background: linear-gradient(135deg, #FFB6C1 0%, #00CED1 100%); border-radius: 16px; display: inline-block; text-align: center; line-height: 64px; box-shadow: 0 8px 20px rgba(0,206,209,0.2);">
+                                                                                <img src="https://mcusercontent.com/1ab0d36c6a26a981d20907640/images/99822b45-cf9c-9bc5-c945-f812a26c1c7a.png" 
+                                                                                     alt="Skip the Learning Curve Icon" 
+                                                                                     width="40" 
+                                                                                     height="40" 
+                                                                                     style="display: inline-block; vertical-align: middle; border: 0; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; filter: brightness(0) invert(1);">
+                                                                            </div>
+                                                                        </td>
+                                                                        <td align="left" style="vertical-align: middle;">
+                                                                            <h3 style="font-size: 22px; font-weight: 800; color: #1f2937; margin: 0 0 10px 0; text-align: left;">Skip the Learning Curve</h3>
+                                                                            <p style="font-size: 16px; color: #6b7280; margin: 0; line-height: 1.7; text-align: left;">While others spend months figuring out AI prompts and tools, you'll be generating professional campaigns from day one. We've done the heavy lifting—you get the results.</p>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                
+                                <!-- Spacer -->
+                                <tr>
+                                    <td style="height: 60px; line-height: 1px; font-size: 1px;">&nbsp;</td>
+                                </tr>
+                                
+                                <!-- Benefit 2 -->
+                                <tr>
+                                    <td style="padding-bottom: 0;">
+                                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="background: linear-gradient(135deg, rgba(255,182,193,0.05) 0%, rgba(0,206,209,0.05) 100%); border-radius: 24px; border: 2px solid rgba(255,182,193,0.1); box-shadow: 0 4px 16px rgba(0,0,0,0.06);">
+                                            <tr>
+                                                <td style="padding: 25px; text-align: center;">
+                                                    <!-- Icon and Text Side by Side -->
+                                                    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                                        <tr>
+                                                            <td align="center" style="padding: 0 20px;">
+                                                                <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                                                    <tr>
+                                                                        <td align="center" style="width: 84px; vertical-align: middle; padding-right: 30px;">
+                                                                            <div style="width: 64px; height: 64px; background: linear-gradient(135deg, #00CED1 0%, #FFB6C1 100%); border-radius: 16px; display: inline-block; text-align: center; line-height: 64px; box-shadow: 0 8px 20px rgba(0,206,209,0.2);">
+                                                                                <img src="https://mcusercontent.com/1ab0d36c6a26a981d20907640/images/5b70b74a-406c-9ec8-6036-a685347ae07b.png" 
+                                                                                     alt="Market-Tested Content Icon" 
+                                                                                     width="40" 
+                                                                                     height="40" 
+                                                                                     style="display: inline-block; vertical-align: middle; border: 0; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; filter: brightness(0) invert(1);">
+                                                                            </div>
+                                                                        </td>
+                                                                        <td align="left" style="vertical-align: middle;">
+                                                                            <h3 style="font-size: 22px; font-weight: 800; color: #1f2937; margin: 0 0 10px 0; text-align: left;">Market-Tested Content</h3>
+                                                                            <p style="font-size: 16px; color: #6b7280; margin: 0; line-height: 1.7; text-align: left;">Our campaigns aren't just AI-generated—they're trained on high-converting real estate copy that actually sells properties. You're getting proven formulas, not experiments.</p>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                
+                                <!-- Spacer -->
+                                <tr>
+                                    <td style="height: 60px; line-height: 1px; font-size: 1px;">&nbsp;</td>
+                                </tr>
+                                
+                                <!-- Benefit 3 -->
+                                <tr>
+                                    <td style="padding-bottom: 0;">
+                                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="background: linear-gradient(135deg, rgba(255,182,193,0.05) 0%, rgba(0,206,209,0.05) 100%); border-radius: 24px; border: 2px solid rgba(255,182,193,0.1); box-shadow: 0 4px 16px rgba(0,0,0,0.06);">
+                                            <tr>
+                                                <td style="padding: 25px; text-align: center;">
+                                                    <!-- Icon and Text Side by Side -->
+                                                    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                                        <tr>
+                                                            <td align="center" style="padding: 0 20px;">
+                                                                <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                                                    <tr>
+                                                                        <td align="center" style="width: 84px; vertical-align: middle; padding-right: 30px;">
+                                                                            <div style="width: 64px; height: 64px; background: linear-gradient(135deg, #FFB6C1 0%, #00CED1 100%); border-radius: 16px; display: inline-block; text-align: center; line-height: 64px; box-shadow: 0 8px 20px rgba(0,206,209,0.2);">
+                                                                                <img src="https://mcusercontent.com/1ab0d36c6a26a981d20907640/images/0452272b-eeda-2eb8-0819-4e9130e2b2f3.png" 
+                                                                                     alt="First-Mover Advantage Icon" 
+                                                                                     width="40" 
+                                                                                     height="40" 
+                                                                                     style="display: inline-block; vertical-align: middle; border: 0; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; filter: brightness(0) invert(1);">
+                                                                            </div>
+                                                                        </td>
+                                                                        <td align="left" style="vertical-align: middle;">
+                                                                            <h3 style="font-size: 22px; font-weight: 800; color: #1f2937; margin: 0 0 10px 0; text-align: left;">First-Mover Advantage</h3>
+                                                                            <p style="font-size: 16px; color: #6b7280; margin: 0; line-height: 1.7; text-align: left;">You're seeing this in BETA for a reason. Early adopters will dominate their markets while competitors are still doing things the old way. This is your head start.</p>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                            <!-- Divider -->
+                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                <tr>
+                                    <td align="center" style="padding: 40px 0; color: #d1d5db; font-size: 18px; text-align: center;">• • •</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    
+                    <!-- CTA Section -->
+                    <tr>
+                        <td style="padding: 0 25px 40px 25px;">
+                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="background: linear-gradient(135deg, rgba(255,182,193,0.1) 0%, rgba(0,206,209,0.1) 100%); border-radius: 28px; border: 3px solid rgba(255,182,193,0.2); box-shadow: 0 6px 20px rgba(0,0,0,0.08);">
+                                <tr>
+                                    <td style="padding: 40px 30px; text-align: center;">
+                                        <h2 style="font-size: 28px; font-weight: 800; margin: 0 0 12px 0; color: #1f2937;">Want to See ListingPal in Action?</h2>
+                                        <p style="font-size: 18px; color: #6b7280; margin: 0 0 25px 0; line-height: 1.6;">Bring an address, I'll bring ListingPal, and we can give it a spin together over Zoom or coffee. Let's see what this thing can really do for your business.</p>
+                                        <a href="https://calendly.com/listingpalinfo/30min" style="display: inline-block; background: linear-gradient(135deg, #00CED1 0%, #FFB6C1 100%); color: white; text-decoration: none; font-weight: 800; padding: 20px 40px; border-radius: 50px; font-size: 18px; box-shadow: 0 10px 30px rgba(0,206,209,0.3); border: 3px solid rgba(255,255,255,0.2);">Let's Test Drive ListingPal</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    
+                    <!-- Footer -->
+                    <tr>
+                        <td style="background: linear-gradient(135deg, #1f2937 0%, #374151 100%); color: #9ca3af; padding: 40px 30px; text-align: center; font-size: 14px;">
+                            <!-- Footer Logo -->
+                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                <tr>
+                                    <td align="center" style="padding-bottom: 30px;">
+                                        <img src="https://mcusercontent.com/1ab0d36c6a26a981d20907640/images/de42de9a-feea-567c-5d38-7915d18768e9.png" 
+                                             alt="ListingPal Footer Logo" 
+                                             width="200" 
+                                             height="62" 
+                                             style="display: block; border: 0; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; max-width: 100%; height: auto;">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="center" style="padding-bottom: 35px;">
+                                        <p style="font-size: 16px; font-weight: 600; color: #d1d5db; margin: 0; line-height: 1.5;">From address to campaign, in 90 seconds</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="center" style="padding-bottom: 35px;">
+                                        <a href="mailto:listingpalinfo@gmail.com" style="color: #9ca3af; text-decoration: none; margin: 0 25px; font-weight: 500; font-size: 15px;">Contact Us</a>
+                                        <a href="#" style="color: #9ca3af; text-decoration: none; margin: 0 25px; font-weight: 500; font-size: 15px;">Privacy Policy</a>
+                                        <a href="#" style="color: #9ca3af; text-decoration: none; margin: 0 25px; font-weight: 500; font-size: 15px;">Terms of Service</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="center" style="padding-top: 10px;">
+                                        <p style="font-size: 13px; opacity: 0.7; margin: 0; line-height: 1.4;">&copy; 2025 ListingPal. Let's Be Pals. All rights reserved.</p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html> 

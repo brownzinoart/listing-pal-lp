@@ -532,9 +532,10 @@
     </div>
 
     <script>
-        // MailerLite API configuration
-        const MAILERLITE_API_KEY = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI0IiwianRpIjoiNjI4OTJlYjhmMjk5OGQ0NzJmMDcwY2M0Njc3NmY4NGZiYWQzZWFhNzFlYmYxMDI0ZjU4ZWQxNWMxMTg5YTE0ZTQwYzM1ODc3MjhjZjA4YzciLCJpYXQiOjE3NTExNTU0MjcuNzcyNTQ5LCJuYmYiOjE3NTExNTU0MjcuNzcyNTUzLCJleHAiOjQ5MDY4MjkwMjcuNzY3OTk2LCJzdWIiOiIxNjQxMjgzIiwic2NvcGVzIjpbXX0.Kef8kasBrH3q4leNLYWifHnRNbQeMUvtIbKzfZ1hVcNYTpfpIbs0S5LzqhlBp0JAoOXslyAG0HycWRKWtrqvHEtgyCXB8B9GkK5mG-ZO6wrd6bmUZOCziVYYzLlgu7vKQECoqBmmosujHWrSt5OJ1XcxfWyDhzszQHszysKwxzBJ2tyW0is4p-2l-5VcSQ3bauSNmCvGXjApwmdXBBzguYWIKZ1qBw9JH0iLd6qS3DuQdxCocCnumPmYOskDB2kubbBzBEhK4RDhr0sMjDXJ_ikOer_pVNV9xTIAyuKnV6yDtcvolLXsKnYZIndgl6OZ0uud16IQqiXnAlVf6WZlpwqkLmOeVeDPyqWpO8Ic3-3KPsJs4aK7P-f4T0Up1nDR63Q9rY2hCPRCIc0nlmEiiXR4RdUuCbeHUcoUmJUkornc4NJldbKl8ebYhUjf8-Vrp7mImwDW813q0GcMONLFAUqt_8DXb0BDWfl9rYjUsQFZsxWe1egqpCtth9TVpwVhUNZZdLmeaf-9FKhNQSjnAlHrS7Rb3ZHB4sRseJ6NhM5jd6Ke1i6RmvZVxkhaSKt247ptTOv1ToxYyclCgVUIiqLtdeeWUT0AXZ-Nm475XmlBBowsv7xtxAxNUknO99tmDGzxh3lCQ-KwDPLDM15xfpYBvtpJpjr37uuxfQyExaA'; // Replace with your actual API key
-        const MAILERLITE_GROUP_ID = '158496151183558640'; // Replace with your group ID
+        // MailChimp API configuration
+        const MAILCHIMP_API_KEY = '5244bdb1e18d0d378cdcd265b6bf2dbb-us16';
+        const MAILCHIMP_SERVER = 'us16'; // Extracted from API key
+        const MAILCHIMP_LIST_ID = 'YOUR_LIST_ID'; // You'll need to get this from your MailChimp dashboard
 
         // Scroll animation
         document.addEventListener('DOMContentLoaded', function() {
@@ -555,7 +556,7 @@
             });
         });
 
-        // MailerLite form submission
+        // MailChimp form submission
         document.getElementById('leadForm').addEventListener('submit', async function(e) {
             e.preventDefault();
             
@@ -576,25 +577,30 @@
             errorMessage.classList.add('hidden');
             
             try {
-                const response = await fetch('https://connect.mailerlite.com/api/subscribers', {
+                const response = await fetch(`https://${MAILCHIMP_SERVER}.api.mailchimp.com/3.0/lists/${MAILCHIMP_LIST_ID}/members`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${MAILERLITE_API_KEY}`,
-                        'Accept': 'application/json'
+                        'Authorization': `apikey ${MAILCHIMP_API_KEY}`
                     },
                     body: JSON.stringify({
-                        email: emailInput.value,
-                        groups: [MAILERLITE_GROUP_ID],
-                        fields: {
-                            source: 'ListingPal Landing Page'
+                        email_address: emailInput.value,
+                        status: 'subscribed',
+                        merge_fields: {
+                            SOURCE: 'ListingPal Landing Page'
                         }
                     })
                 });
 
-                if (response.ok) {
-                    successMessage.classList.remove('hidden');
-                    emailInput.value = '';
+                if (response.ok || response.status === 400) {
+                    // 400 might mean already subscribed, which is fine
+                    const data = await response.json();
+                    if (response.ok || data.title === 'Member Exists') {
+                        successMessage.classList.remove('hidden');
+                        emailInput.value = '';
+                    } else {
+                        throw new Error(data.detail || 'Failed to subscribe');
+                    }
                 } else {
                     throw new Error('Failed to subscribe');
                 }
