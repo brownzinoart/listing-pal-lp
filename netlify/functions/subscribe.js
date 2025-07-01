@@ -16,7 +16,7 @@ export const handler = async (event) => {
     body: JSON.stringify({
       email,
       fields: { name },
-      groups: [process.env.ML_GROUP_ID]
+      ...(process.env.ML_GROUP_ID && { groups: [process.env.ML_GROUP_ID] })
     })
   });
 
