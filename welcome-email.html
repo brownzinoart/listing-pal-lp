@@ -42,6 +42,7 @@
             padding: 0 !important;
             background-color: #f9fafb !important;
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
+            font-size: 17px !important; /* Boost base font for mobile readability */
         }
         
         .main-table {
@@ -105,7 +106,7 @@
             <td align="center" style="padding: 20px 10px;">
                 
                 <!-- Main Container -->
-                <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="600" class="main-table" style="background-color: #ffffff; max-width: 600px;">
+                <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" class="main-table" style="background-color: #ffffff; max-width: 600px;">
                     
                     <!-- Header -->
                     <tr>
@@ -279,7 +280,7 @@
                                                                     First-Mover Advantage
                                                                 </h3>
                                                                 <p style="margin: 0; color: #6b7280; font-size: 16px; line-height: 22px;" class="mobile-center mobile-font-small">
-                                                                    You're seeing this in BETA for a reason. Early adopters will dominate their markets while competitors are still doing things the old way. This is your head start.
+                                                                    Early adopters will dominate their markets while competitors are still doing things the old way. This is your head start.
                                                                 </p>
                                                             </td>
                                                         </tr>
@@ -352,9 +353,12 @@
                                     <td align="center" style="padding-bottom: 15px;">
                                         <a href="mailto:listingpalinfo@gmail.com" style="color: #9ca3af; text-decoration: none; margin: 0 10px; font-size: 13px;">Contact Us</a>
                                         <span style="color: #9ca3af; margin: 0 5px;">|</span>
-                                        <a href="#" style="color: #9ca3af; text-decoration: none; margin: 0 10px; font-size: 13px;">Privacy</a>
+                                        <a href="https://listingpal.netlify.app/privacy.html" style="color: #9ca3af; text-decoration: none; margin: 0 10px; font-size: 13px;">Privacy</a>
                                         <span style="color: #9ca3af; margin: 0 5px;">|</span>
-                                        <a href="#" style="color: #9ca3af; text-decoration: none; margin: 0 10px; font-size: 13px;">Terms</a>
+                                        <a href="https://listingpal.netlify.app/terms.html" style="color: #9ca3af; text-decoration: none; margin: 0 10px; font-size: 13px;">Terms</a>
+                                        <span style="color: #9ca3af; margin: 0 5px;">|</span>
+                                        <!-- MailerLite required unsubscribe link -->
+                                        <a href="{$unsubscribe}" style="color: #9ca3af; text-decoration: none; margin: 0 10px; font-size: 13px;">Unsubscribe</a>
                                     </td>
                                 </tr>
                                 <tr>
