@@ -2,6 +2,8 @@
 
 Generate a full real-estate listing campaign in 90 seconds.
 
+Last updated: January 2025
+
 ## Setup Instructions
 
 ### 1. Install Dependencies
