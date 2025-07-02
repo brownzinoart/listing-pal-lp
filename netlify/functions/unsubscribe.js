@@ -17,7 +17,7 @@ const { google } = require('googleapis');
 // Google Sheets configuration
 const SCOPES = ['https://www.googleapis.com/auth/spreadsheets'];
 const SHEET_ID = process.env.GOOGLE_SHEET_ID; // Your Google Sheet ID
-const RANGE = 'Sheet1!A:B'; // Assuming email is in column A, status in column B
+const RANGE = 'listing-pal!A:B'; // Assuming email is in column A, status in column B
 
 // Initialize Google Sheets API
 function getGoogleSheets() {
@@ -101,7 +101,7 @@ async function removeFromGoogleSheets(email) {
       // This is better for compliance and analytics
       await sheets.spreadsheets.values.update({
         spreadsheetId: SHEET_ID,
-        range: `Sheet1!B${rowIndex + 1}`,
+        range: `listing-pal!B${rowIndex + 1}`,
         valueInputOption: 'RAW',
         resource: {
           values: [['unsubscribed']],

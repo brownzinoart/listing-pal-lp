@@ -52,7 +52,7 @@ exports.handler = async function (event, context) {
     // Try to read from the sheet
     const response = await sheets.spreadsheets.values.get({
       spreadsheetId: sheetId,
-      range: 'Sheet1!A1:C1', // Just read the headers
+      range: 'listing-pal!A1:C1', // Just read the headers
     });
     
     return {

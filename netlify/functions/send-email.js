@@ -15,7 +15,7 @@ const { google } = require('googleapis');
 // Google Sheets configuration
 const SCOPES = ['https://www.googleapis.com/auth/spreadsheets'];
 const SHEET_ID = process.env.GOOGLE_SHEET_ID;
-const RANGE = 'Sheet1!A:C'; // Email, Status, Date Added
+const RANGE = 'listing-pal!A:C'; // Email, Status, Date Added
 
 // Initialize Google Sheets API
 function getGoogleSheets() {
