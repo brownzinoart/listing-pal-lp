@@ -32,6 +32,9 @@ exports.handler = async function (event, context) {
     // Initialize Resend with your API key
     const resend = new Resend(RESEND_API_KEY);
 
+    // Generate unsubscribe link
+    const unsubscribeUrl = `https://listingpal.netlify.app/unsubscribe?email=${encodeURIComponent(email)}`;
+
     // Send the email using Resend
     const { data, error } = await resend.emails.send({
       // Using your verified custom domain email for best deliverability and branding.
@@ -84,6 +87,7 @@ exports.handler = async function (event, context) {
             background-color: #f9fafb !important;
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
             font-size: 17px !important;
+            /* Boost base font for mobile readability */
         }
 
         .main-table {
@@ -97,7 +101,7 @@ exports.handler = async function (event, context) {
         }
 
         /* Mobile-first responsive */
-        @media only screen and (max-width: 600px) {
+@media only screen and (max-width: 600px) {
             .main-table {
                 width: 100% !important;
                 min-width: 320px !important;
@@ -399,6 +403,8 @@ exports.handler = async function (event, context) {
                                         <a href="https://listingpal.netlify.app/privacy.html" target="_blank" style="color: #9ca3af; text-decoration: none; margin: 0 10px; font-size: 13px;">Privacy</a>
                                         <span style="color: #9ca3af; margin: 0 5px;">|</span>
                                         <a href="https://listingpal.netlify.app/terms.html" target="_blank" style="color: #9ca3af; text-decoration: none; margin: 0 10px; font-size: 13px;">Terms</a>
+                                        <span style="color: #9ca3af; margin: 0 5px;">|</span>
+                                        <a href="${unsubscribeUrl}" style="color: #9ca3af; text-decoration: none; margin: 0 10px; font-size: 13px;">Unsubscribe</a>
                                     </td>
                                 </tr>
                                 <tr>
