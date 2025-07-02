@@ -4,13 +4,13 @@
 // This function uses the Resend API for maximum deliverability of your welcome email.
 
 // 1. Make sure you've run: npm install resend
-import { Resend } from 'resend';
+const { Resend } = require('resend');
 
 // 2. Your Resend API Key is loaded securely from Netlify's environment variables.
 const RESEND_API_KEY = process.env.RESEND_API_KEY;
 
 // 3. Supabase integration for lead capture
-import { createClient } from '@supabase/supabase-js';
+const { createClient } = require('@supabase/supabase-js');
 
 // Supabase configuration
 const supabaseUrl = process.env.SUPABASE_URL;
