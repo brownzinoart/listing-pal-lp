@@ -9,6 +9,46 @@ import { Resend } from 'resend';
 // 2. Your Resend API Key is loaded securely from Netlify's environment variables.
 const RESEND_API_KEY = process.env.RESEND_API_KEY;
 
+// 3. Google Sheets integration for lead capture
+const { google } = require('googleapis');
+
+// Google Sheets configuration
+const SCOPES = ['https://www.googleapis.com/auth/spreadsheets'];
+const SHEET_ID = process.env.GOOGLE_SHEET_ID;
+const RANGE = 'Sheet1!A:C'; // Email, Status, Date Added
+
+// Initialize Google Sheets API
+function getGoogleSheets() {
+  const auth = new google.auth.GoogleAuth({
+    scopes: SCOPES,
+    credentials: JSON.parse(process.env.GOOGLE_SERVICE_ACCOUNT_KEY),
+  });
+  return google.sheets({ version: 'v4', auth });
+}
+
+// Function to add lead to Google Sheets
+async function addLeadToGoogleSheets(email) {
+  try {
+    const sheets = getGoogleSheets();
+    
+    // Add the new lead
+    await sheets.spreadsheets.values.append({
+      spreadsheetId: SHEET_ID,
+      range: RANGE,
+      valueInputOption: 'RAW',
+      insertDataOption: 'INSERT_ROWS',
+      resource: {
+        values: [[email, 'subscribed', new Date().toISOString()]],
+      },
+    });
+    
+    console.log(`Lead captured: ${email}`);
+  } catch (error) {
+    console.error('Error adding lead to Google Sheets:', error);
+    // Don't throw error - we still want to send the email even if lead capture fails
+  }
+}
+
 // The main handler function for the Netlify Function
 exports.handler = async function (event, context) {
   // Only allow POST requests
@@ -34,6 +74,9 @@ exports.handler = async function (event, context) {
 
     // Generate unsubscribe link
     const unsubscribeUrl = `https://listingpal.netlify.app/.netlify/functions/unsubscribe?email=${encodeURIComponent(email)}`;
+
+    // Capture the lead in Google Sheets
+    await addLeadToGoogleSheets(email);
 
     // Send the email using Resend
     const { data, error } = await resend.emails.send({
