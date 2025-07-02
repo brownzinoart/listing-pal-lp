@@ -38,103 +38,387 @@ exports.handler = async function (event, context) {
       from: 'Wally from ListingPal <wally@listingpal.info>',
       to: [email],
       subject: "Your ListingPal Deep Dive is Here!",
-      // Your full HTML email content
-      html: `
-      <!DOCTYPE html>
-      <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
-      <head>
-          <meta charset="utf-8">
-          <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <meta http-equiv="X-UA-Compatible" content="IE=edge">
-          <meta name="x-apple-disable-message-reformatting">
-          <title>Your ListingPal Deep Dive is Here!</title>
-          <!--[if mso]>
-              <noscript>
-                  <xml>
-                      <o:OfficeDocumentSettings>
-                          <o:PixelsPerInch>96</o:PixelsPerInch>
-                      </o:OfficeDocumentSettings>
-                  </xml>
-              </noscript>
-          <![endif]-->
-          <style>
-              body, table, td, p, a, li { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
-              table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
-              img { -ms-interpolation-mode: bicubic; border: 0; height: auto; line-height: 100%; outline: none; text-decoration: none; }
-              body { margin: 0 !important; padding: 0 !important; background-color: #f9fafb !important; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif !important; font-size: 17px !important; }
-              .main-table { width: 100% !important; max-width: 600px !important; background-color: #ffffff !important; }
-              .benefit-icon { filter: brightness(0) invert(1); }
-              @media only screen and (max-width: 600px) {
-                  .main-table { width: 100% !important; min-width: 320px !important; }
-                  .mobile-padding { padding: 20px !important; }
-                  .mobile-font-large { font-size: 24px !important; line-height: 28px !important; }
-                  .mobile-font-medium { font-size: 18px !important; line-height: 22px !important; }
-                  .mobile-font-small { font-size: 16px !important; line-height: 20px !important; }
-              }
-          </style>
-      </head>
-      <body style="margin: 0; padding: 0; background-color: #f9fafb;">
-          <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="background-color: #f9fafb;">
-              <tr>
-                  <td align="center" style="padding: 20px 10px;">
-                      <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" class="main-table" style="background-color: #ffffff; max-width: 600px;">
-                          <!-- Header -->
-                          <tr>
-                              <td style="background: linear-gradient(135deg, #FFB6C1 0%, #00CED1 100%); background-color: #FFB6C1; padding: 40px 20px; text-align: center;">
-                                  <img src="https://mcusercontent.com/1ab0d36c6a26a981d20907640/images/fbf958b2-b5f2-d0f4-b480-9498c57aa68a.png" alt="ListingPal Logo" width="200" style="display: inline-block; max-width: 100%; height: auto; vertical-align: middle;">
-                                  <span style="background-color: rgba(255,255,255,0.9); color: #333; font-size: 10px; font-weight: bold; padding: 4px 8px; border-radius: 10px; text-transform: uppercase; letter-spacing: 1px; margin-left: 10px; vertical-align: top; display: inline-block;">DEMO</span>
-                              </td>
-                          </tr>
-                          <!-- Main Content -->
-                          <tr>
-                              <td style="padding: 40px 30px;" class="mobile-padding">
-                                  <h1 style="margin: 0 0 20px; color: #1f2937; font-size: 32px; line-height: 36px; font-weight: bold; text-align: center;" class="mobile-font-large">Thank You for Your Interest in ListingPal!</h1>
-                                  <p style="margin: 0 0 30px; color: #6b7280; font-size: 18px; line-height: 24px; text-align: center;" class="mobile-font-medium">Here is the deep dive video into our demo features. The video is intended to give you a look at the possibilities this tool can provide. As we prep for Beta testing, we hope we can chat soon about how ListingPal can help you and your team!</p>
-                                  <!-- Video Button -->
-                                  <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
-                                      <tr>
-                                          <td align="center" style="padding: 20px 0;">
-                                              <table role="presentation" cellspacing="0" cellpadding="0" border="0">
-                                                  <tr>
-                                                      <td style="background: linear-gradient(135deg, #00CED1 0%, #FFB6C1 100%); background-color: #00CED1; border-radius: 25px;">
-                                                          <a href="https://youtu.be/w337kCMqfnM" target="_blank" style="display: block; padding: 15px 30px; color: #ffffff; text-decoration: none; font-size: 18px; font-weight: bold; text-align: center;">Watch the Deep Dive Video</a>
-                                                      </td>
-                                                  </tr>
-                                              </table>
-                                          </td>
-                                      </tr>
-                                  </table>
-                                  
-                                  <!-- Additional Content -->
-                                  <p style="margin: 30px 0 20px; color: #6b7280; font-size: 16px; line-height: 22px; text-align: center;" class="mobile-font-small">Questions? Ready to discuss how ListingPal can transform your listing process? I'd love to hear from you!</p>
-                                  
-                                  <!-- Contact CTA -->
-                                  <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
-                                      <tr>
-                                          <td align="center" style="padding: 10px 0;">
-                                              <p style="margin: 0; color: #6b7280; font-size: 16px;">
-                                                  <a href="mailto:wally@listingpal.info" style="color: #00CED1; text-decoration: none; font-weight: bold;">Get in Touch</a>
-                                              </p>
-                                          </td>
-                                      </tr>
-                                  </table>
-                                  
-                                  <!-- Footer -->
-                                  <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #e5e7eb; text-align: center;">
-                                      <p style="margin: 0; color: #9ca3af; font-size: 14px;">
-                                          Thanks,<br>
-                                          <strong style="color: #6b7280;">Wally from ListingPal</strong>
-                                      </p>
-                                  </div>
-                              </td>
-                          </tr>
-                      </table>
-                  </td>
-              </tr>
-          </table>
-      </body>
-      </html>
-      `,
+      // Complete HTML email content from welcome-email.html
+      html: `<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="x-apple-disable-message-reformatting">
+    <title>Your ListingPal Deep Dive is Here!</title>
+
+    <!--[if mso]>
+        <noscript>
+            <xml>
+                <o:OfficeDocumentSettings>
+                    <o:PixelsPerInch>96</o:PixelsPerInch>
+                </o:OfficeDocumentSettings>
+            </xml>
+        </noscript>
+        <![endif]-->
+
+    <style>
+        /* Reset */
+        body, table, td, p, a, li {
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+        }
+        table, td {
+            mso-table-lspace: 0pt;
+            mso-table-rspace: 0pt;
+        }
+        img {
+            -ms-interpolation-mode: bicubic;
+            border: 0;
+            height: auto;
+            line-height: 100%;
+            outline: none;
+            text-decoration: none;
+        }
+
+        /* Main styles */
+        body {
+            margin: 0 !important;
+            padding: 0 !important;
+            background-color: #f9fafb !important;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
+            font-size: 17px !important;
+        }
+
+        .main-table {
+            width: 100% !important;
+            max-width: 600px !important;
+            background-color: #ffffff !important;
+        }
+
+        .benefit-icon {
+            filter: brightness(0) invert(1);
+        }
+
+        /* Mobile-first responsive */
+        @media only screen and (max-width: 600px) {
+            .main-table {
+                width: 100% !important;
+                min-width: 320px !important;
+            }
+            .mobile-padding {
+                padding: 20px !important;
+            }
+            .mobile-font-large {
+                font-size: 24px !important;
+                line-height: 28px !important;
+            }
+            .mobile-font-medium {
+                font-size: 18px !important;
+                line-height: 22px !important;
+            }
+            .mobile-font-small {
+                font-size: 16px !important;
+                line-height: 20px !important;
+            }
+            .mobile-center {
+                text-align: center !important;
+            }
+            .mobile-block {
+                display: block !important;
+                width: 100% !important;
+            }
+            .mobile-hide {
+                display: none !important;
+            }
+            .benefit-icon-container {
+                margin: 0 !important;
+            }
+        }
+    </style>
+</head>
+
+<body style="margin: 0; padding: 0; background-color: #f9fafb;">
+    <!-- Wrapper Table -->
+    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="background-color: #f9fafb;">
+        <tr>
+            <td align="center" style="padding: 20px 10px;">
+
+                <!-- Main Container -->
+                <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" class="main-table" style="background-color: #ffffff; max-width: 600px;">
+
+                    <!-- Header -->
+                    <tr>
+                        <td style="background: linear-gradient(135deg, #FFB6C1 0%, #00CED1 100%); background-color: #FFB6C1; padding: 40px 20px; text-align: center;">
+                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                <tr>
+                                    <td align="center">
+                                        <img src="https://mcusercontent.com/1ab0d36c6a26a981d20907640/images/fbf958b2-b5f2-d0f4-b480-9498c57aa68a.png"
+                                        alt="ListingPal Logo"
+                                        width="200"
+                                        height="auto"
+                                        style="display: inline-block; max-width: 100%; height: auto; vertical-align: middle;">
+                                        <span style="background-color: rgba(255,255,255,0.9); color: #333; font-size: 10px; font-weight: bold; padding: 4px 8px; border-radius: 10px; text-transform: uppercase; letter-spacing: 1px; margin-left: 10px; vertical-align: top; display: inline-block;">DEMO</span>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+
+                    <!-- Main Content -->
+                    <tr>
+                        <td style="padding: 40px 30px;" class="mobile-padding">
+
+                            <!-- Hero Title -->
+                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                <tr>
+                                    <td align="center" style="padding-bottom: 20px;">
+                                        <h1 style="margin: 0; color: #1f2937; font-size: 32px; line-height: 36px; font-weight: bold; text-align: center;" class="mobile-font-large">
+                                            Thank You for Your Interest in ListingPal!
+                                        </h1>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="center" style="padding-bottom: 30px;">
+                                        <p style="margin: 0; color: #6b7280; font-size: 18px; line-height: 24px; text-align: center;" class="mobile-font-medium">
+                                            Here is the deep dive video into our demo features. The video is intended to give you a look at the possibilities this tool can provide. As we prep for Beta testing, we hope we can chat soon about how ListingPal can help you and your team! 
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <!-- Video CTA Button -->
+                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                <tr>
+                                    <td align="center" style="padding: 20px 0;">
+                                        <table role="presentation" cellspacing="0" cellpadding="0" border="0">
+                                            <tr>
+                                                <td style="background: linear-gradient(135deg, #00CED1 0%, #FFB6C1 100%); background-color: #00CED1; border-radius: 25px;">
+                                                    <a href="https://youtu.be/w337kCMqfnM" target="_blank" style="display: block; padding: 15px 30px; color: #ffffff; text-decoration: none; font-size: 18px; font-weight: bold; text-align: center;">
+                                                        Watch the Deep Dive Video
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <!-- Divider -->
+                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                <tr>
+                                    <td align="center" style="padding: 30px 0; color: #d1d5db; font-size: 18px;">
+                                        • • •
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <!-- Benefits Section -->
+                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+
+                                <!-- Benefit 1 -->
+                                <tr>
+                                    <td style="padding-bottom: 25px;">
+                                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="background-color: #f8fafc; border-radius: 12px;">
+                                            <tr>
+                                                <td style="padding: 25px; text-align: center;">
+                                                    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                                        <tr>
+                                                            <td align="center" style="padding-bottom: 20px;">
+                                                                <table role="presentation" cellspacing="0" cellpadding="0" border="0" class="benefit-icon-container">
+                                                                    <tr>
+                                                                        <td width="80" height="80" style="background: linear-gradient(135deg, #FFB6C1 0%, #00CED1 100%); background-color: #FFB6C1; border-radius: 8px; text-align: center; vertical-align: middle;">
+                                                                            <img src="https://storage.mlcdn.com/account_image/1628143/H7yK6SvxrFu1JcmTTeyEdpgNqL1DV4RvXImxFxrS.png"
+                                                                            alt="Icon"
+                                                                            width="42"
+                                                                            height="42"
+                                                                            class="benefit-icon"
+                                                                            style="display: block; margin: 13px auto;">
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="text-align: center;">
+                                                                <h3 style="margin: 0 0 10px 0; color: #1f2937; font-size: 20px; font-weight: bold;">
+                                                                    AgentSelect™ Integration
+                                                                </h3>
+                                                                <p style="margin: 0; color: #6b7280; font-size: 16px; line-height: 22px;" class="mobile-font-small">
+                                                                    Stop guessing which model to use—our AI orchestration picks the right one automatically. Our proprietary stack chooses the best-suited model for every task, every time.
+                                                                </p>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+
+                                <!-- Benefit 2 -->
+                                <tr>
+                                    <td style="padding-bottom: 25px;">
+                                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="background-color: #f8fafc; border-radius: 12px;">
+                                            <tr>
+                                                <td style="padding: 25px; text-align: center;">
+                                                    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                                        <tr>
+                                                            <td align="center" style="padding-bottom: 20px;">
+                                                                <table role="presentation" cellspacing="0" cellpadding="0" border="0" class="benefit-icon-container">
+                                                                    <tr>
+                                                                        <td width="80" height="80" style="background: linear-gradient(135deg, #00CED1 0%, #FFB6C1 100%); background-color: #00CED1; border-radius: 8px; text-align: center; vertical-align: middle;">
+                                                                            <img src="https://mcusercontent.com/1ab0d36c6a26a981d20907640/images/5b70b74a-406c-9ec8-6036-a685347ae07b.png"
+                                                                            alt="Icon"
+                                                                            width="32"
+                                                                            height="32"
+                                                                            class="benefit-icon"
+                                                                            style="display: block; margin: 13px auto;">
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="text-align: center;">
+                                                                <h3 style="margin: 0 0 10px 0; color: #1f2937; font-size: 20px; font-weight: bold;">
+                                                                    Market-Tested Content
+                                                                </h3>
+                                                                <p style="margin: 0; color: #6b7280; font-size: 16px; line-height: 22px;" class="mobile-font-small">
+                                                                    Our campaigns won't just be AI-generated—they'll be trained on high-converting real estate copy that actually sells properties. You'd be getting proven formulas, not experiments.
+                                                                </p>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+
+                                <!-- Benefit 3 -->
+                                <tr>
+                                    <td style="padding-bottom: 30px;">
+                                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="background-color: #f8fafc; border-radius: 12px;">
+                                            <tr>
+                                                <td style="padding: 25px; text-align: center;">
+                                                    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                                        <tr>
+                                                            <td align="center" style="padding-bottom: 20px;">
+                                                                <table role="presentation" cellspacing="0" cellpadding="0" border="0" class="benefit-icon-container">
+                                                                    <tr>
+                                                                        <td width="80" height="80" style="background: linear-gradient(135deg, #FFB6C1 0%, #00CED1 100%); background-color: #FFB6C1; border-radius: 8px; text-align: center; vertical-align: middle;">
+                                                                            <img src="https://storage.mlcdn.com/account_image/1628143/dEboP0G6wiK7KYLyTJulph2vUy5hiJMKeE93GJrF.png"
+                                                                            alt="Icon"
+                                                                            width="32"
+                                                                            height="32"
+                                                                            class="benefit-icon"
+                                                                            style="display: block; margin: 13px auto;">
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="text-align: center;">
+                                                                <h3 style="margin: 0 0 10px 0; color: #1f2937; font-size: 20px; font-weight: bold;">
+                                                                    Skip the Learning Curve
+                                                                </h3>
+                                                                <p style="margin: 0; color: #6b7280; font-size: 16px; line-height: 22px;" class="mobile-font-small">
+                                                                    While others spend months figuring out AI prompts and tools, you'll be generating professional campaigns from day one. We've done the heavy lifting—you get the results.
+                                                                </p>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <!-- Divider -->
+                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                <tr>
+                                    <td align="center" style="padding: 20px 0; color: #d1d5db; font-size: 18px;">
+                                        • • •
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </td>
+                    </tr>
+
+                    <!-- CTA Section -->
+                    <tr>
+                        <td style="padding: 0 30px 40px 30px;" class="mobile-padding">
+                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="background-color: #f0f9ff; border-radius: 15px;">
+                                <tr>
+                                    <td style="padding: 30px; text-align: center;">
+                                        <h2 style="margin: 0 0 15px 0; color: #1f2937; font-size: 26px; font-weight: bold;" class="mobile-font-large">
+                                            Want to See ListingPal in Action?
+                                        </h2>
+                                        <p style="margin: 0 0 25px 0; color: #6b7280; font-size: 16px; line-height: 22px;" class="mobile-font-small">
+                                            Bring an address, I'll bring ListingPal, and we can give it a spin together over Zoom or coffee. Let's see what this thing can really do for your business.
+                                        </p>
+                                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" style="margin: 0 auto;">
+                                            <tr>
+                                                <td style="background: linear-gradient(135deg, #00CED1 0%, #FFB6C1 100%); background-color: #00CED1; border-radius: 25px;">
+                                                    <a href="https://calendly.com/listingpalinfo/30min" target="_blank" style="display: block; padding: 15px 30px; color: #ffffff; text-decoration: none; font-size: 18px; font-weight: bold; text-align: center;">
+                                                        Let's Test Drive ListingPal
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+
+                    <!-- Footer -->
+                    <tr>
+                        <td style="background-color: #1f2937; color: #9ca3af; padding: 30px; text-align: center;">
+                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                <tr>
+                                    <td align="center" style="padding-bottom: 20px;">
+                                        <img src="https://mcusercontent.com/1ab0d36c6a26a981d20907640/images/de42de9a-feea-567c-5d38-7915d18768e9.png"
+                                        alt="ListingPal Footer Logo"
+                                        width="150"
+                                        height="auto"
+                                        style="display: block; max-width: 100%; height: auto;">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="center" style="padding-bottom: 20px;">
+                                        <p style="margin: 0; color: #d1d5db; font-size: 14px;">
+                                            From address to campaign, in 90 seconds
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="center" style="padding-bottom: 15px;">
+                                        <a href="mailto:listingpalinfo@gmail.com" style="color: #9ca3af; text-decoration: none; margin: 0 10px; font-size: 13px;">Contact Us</a>
+                                        <span style="color: #9ca3af; margin: 0 5px;">|</span>
+                                        <a href="https://listingpal.netlify.app/privacy.html" target="_blank" style="color: #9ca3af; text-decoration: none; margin: 0 10px; font-size: 13px;">Privacy</a>
+                                        <span style="color: #9ca3af; margin: 0 5px;">|</span>
+                                        <a href="https://listingpal.netlify.app/terms.html" target="_blank" style="color: #9ca3af; text-decoration: none; margin: 0 10px; font-size: 13px;">Terms</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="center">
+                                        <p style="margin: 0; color: #6b7280; font-size: 12px;">
+                                            &copy; 2025 ListingPal. Let's Be Pals. All rights reserved.
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+
+                </table>
+
+            </td>
+        </tr>
+    </table>
+</body>
+</html>`,
     });
 
     // Handle potential errors from the Resend API
