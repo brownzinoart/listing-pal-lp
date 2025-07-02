@@ -33,7 +33,7 @@ exports.handler = async function (event, context) {
     const resend = new Resend(RESEND_API_KEY);
 
     // Generate unsubscribe link
-    const unsubscribeUrl = `https://listingpal.netlify.app/unsubscribe?email=${encodeURIComponent(email)}`;
+    const unsubscribeUrl = `https://listingpal.netlify.app/.netlify/functions/unsubscribe?email=${encodeURIComponent(email)}`;
 
     // Send the email using Resend
     const { data, error } = await resend.emails.send({
