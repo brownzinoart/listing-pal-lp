@@ -655,12 +655,12 @@
                 console.log('Response status:', response.status);
                 
                 if (response.ok || response.status === 201) {
-                    successMessage.innerHTML = '<p>🎉 Success! Check your email for the video link. (Check spam folder if needed)</p>';
+                    successMessage.innerHTML = '<p>Success! Check your email for the video link. (Check spam folder if needed)</p>';
                     successMessage.classList.remove('hidden');
                     emailInput.value = '';
                 } else if (response.status === 409) {
                     // Already subscribed
-                    successMessage.innerHTML = '<p>✅ You\'re already on our list! Check your email for the video link.</p>';
+                    successMessage.innerHTML = '<p>You\'re already on our list! Check your email for the video link.</p>';
                     successMessage.classList.remove('hidden');
                     emailInput.value = '';
                 } else if (response.status === 502) {
