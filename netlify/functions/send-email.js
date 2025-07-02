@@ -90,7 +90,42 @@ exports.handler = async function (event, context) {
                               <td style="padding: 40px 30px;" class="mobile-padding">
                                   <h1 style="margin: 0 0 20px; color: #1f2937; font-size: 32px; line-height: 36px; font-weight: bold; text-align: center;" class="mobile-font-large">Thank You for Your Interest in ListingPal!</h1>
                                   <p style="margin: 0 0 30px; color: #6b7280; font-size: 18px; line-height: 24px; text-align: center;" class="mobile-font-medium">Here is the deep dive video into our demo features. The video is intended to give you a look at the possibilities this tool can provide. As we prep for Beta testing, we hope we can chat soon about how ListingPal can help you and your team!</p>
-                                  <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%"><tr><td align="center" style="padding: 20px 0;"><table role="presentation" cellspacing="0" cellpadding="0" border="0"><tr><td style="background: linear-gradient(135deg, #00CED1 0%, #FFB6C1 100%); background-color: #00CED1; border-radius: 25px;"><a href="https://youtu.be/w337kCMqfnM" target="_blank" style="display: block; padding: 15px 30px; color: #ffffff; text-decoration: none; font-size: 18px; font-weight: bold; text-align: center;">Watch the Deep Dive Video</a></td></tr></table></td></tr></table>
+                                  <!-- Video Button -->
+                                  <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                      <tr>
+                                          <td align="center" style="padding: 20px 0;">
+                                              <table role="presentation" cellspacing="0" cellpadding="0" border="0">
+                                                  <tr>
+                                                      <td style="background: linear-gradient(135deg, #00CED1 0%, #FFB6C1 100%); background-color: #00CED1; border-radius: 25px;">
+                                                          <a href="https://youtu.be/w337kCMqfnM" target="_blank" style="display: block; padding: 15px 30px; color: #ffffff; text-decoration: none; font-size: 18px; font-weight: bold; text-align: center;">Watch the Deep Dive Video</a>
+                                                      </td>
+                                                  </tr>
+                                              </table>
+                                          </td>
+                                      </tr>
+                                  </table>
+                                  
+                                  <!-- Additional Content -->
+                                  <p style="margin: 30px 0 20px; color: #6b7280; font-size: 16px; line-height: 22px; text-align: center;" class="mobile-font-small">Questions? Ready to discuss how ListingPal can transform your listing process? I'd love to hear from you!</p>
+                                  
+                                  <!-- Contact CTA -->
+                                  <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                      <tr>
+                                          <td align="center" style="padding: 10px 0;">
+                                              <p style="margin: 0; color: #6b7280; font-size: 16px;">
+                                                  <a href="mailto:wally@listingpal.info" style="color: #00CED1; text-decoration: none; font-weight: bold;">Get in Touch</a>
+                                              </p>
+                                          </td>
+                                      </tr>
+                                  </table>
+                                  
+                                  <!-- Footer -->
+                                  <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #e5e7eb; text-align: center;">
+                                      <p style="margin: 0; color: #9ca3af; font-size: 14px;">
+                                          Thanks,<br>
+                                          <strong style="color: #6b7280;">Wally from ListingPal</strong>
+                                      </p>
+                                  </div>
                               </td>
                           </tr>
                       </table>
