@@ -641,14 +641,13 @@
             errorMessage.classList.add('hidden');
             
             try {
-                const response = await fetch('/.netlify/functions/subscribe', {
+                const response = await fetch('/.netlify/functions/send-email', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify({ 
-                        email: emailInput.value,
-                        name: ''
+                        email: emailInput.value
                     }),
                 });
 
