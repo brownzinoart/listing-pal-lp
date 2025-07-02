@@ -367,10 +367,10 @@
                         </div>
                     </form>
                     <div id="successMessage" class="hidden mt-4 text-center p-4 bg-green-50 text-green-700 rounded-lg">
-                        <p>Success! Check your email for the video link.</p>
+                        <p>🎉 Success! Check your email for the video link. (Check spam folder if needed)</p>
                     </div>
                     <div id="errorMessage" class="hidden mt-4 text-center p-4 bg-red-50 text-red-700 rounded-lg">
-                        <p>Something went wrong. Please try again.</p>
+                        <p>Network error. Please check your connection and try again.</p>
                     </div>
                 </div>
             </div>
@@ -652,7 +652,15 @@
                     }),
                 });
 
-                if (response.ok) {
+                console.log('Response status:', response.status);
+                
+                if (response.ok || response.status === 201) {
+                    successMessage.innerHTML = '<p>🎉 Success! Check your email for the video link. (Check spam folder if needed)</p>';
+                    successMessage.classList.remove('hidden');
+                    emailInput.value = '';
+                } else if (response.status === 409) {
+                    // Already subscribed
+                    successMessage.innerHTML = '<p>✅ You\'re already on our list! Check your email for the video link.</p>';
                     successMessage.classList.remove('hidden');
                     emailInput.value = '';
                 } else if (response.status === 502) {
@@ -661,11 +669,13 @@
                     errorMessage.classList.remove('hidden');
                 } else {
                     // Other errors
-                    errorMessage.innerHTML = '<p>Something went wrong. Please try again.</p>';
+                    const errorText = await response.text();
+                    console.error('Error response:', response.status, errorText);
+                    errorMessage.innerHTML = `<p>Error (${response.status}): Please try again or contact support.</p>`;
                     errorMessage.classList.remove('hidden');
                 }
             } catch (error) {
-                console.error('Error:', error);
+                console.error('Network error:', error);
                 errorMessage.innerHTML = '<p>Network error. Please check your connection and try again.</p>';
                 errorMessage.classList.remove('hidden');
             } finally {
