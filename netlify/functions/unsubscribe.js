@@ -9,24 +9,14 @@
 // 3. MongoDB Atlas - Free tier, document-based
 // 4. Google Sheets API - Simple, no setup required
 
-// For now, I'll implement with Google Sheets as it's the quickest to set up
-// You can easily migrate to a proper database later
+// Using Supabase for database operations
 
-const { google } = require('googleapis');
+const { createClient } = require('@supabase/supabase-js');
 
-// Google Sheets configuration
-const SCOPES = ['https://www.googleapis.com/auth/spreadsheets'];
-const SHEET_ID = process.env.GOOGLE_SHEET_ID; // Your Google Sheet ID
-const RANGE = 'listing-pal!A:B'; // Assuming email is in column A, status in column B
-
-// Initialize Google Sheets API
-function getGoogleSheets() {
-  const auth = new google.auth.GoogleAuth({
-    scopes: SCOPES,
-    credentials: JSON.parse(process.env.GOOGLE_SERVICE_ACCOUNT_KEY), // Parse the JSON string
-  });
-  return google.sheets({ version: 'v4', auth });
-}
+// Supabase configuration
+const supabaseUrl = process.env.SUPABASE_URL;
+const supabaseKey = process.env.SUPABASE_ANON_KEY;
+const supabase = createClient(supabaseUrl, supabaseKey);
 
 // Main handler function
 exports.handler = async function (event, context) {
@@ -52,8 +42,8 @@ exports.handler = async function (event, context) {
     // Decode the email (in case it's URL encoded)
     const decodedEmail = decodeURIComponent(email);
 
-    // Remove from Google Sheets
-    await removeFromGoogleSheets(decodedEmail);
+    // Remove from Supabase
+    await removeFromSupabase(decodedEmail);
 
     // Log the unsubscribe action
     console.log(`User unsubscribed: ${decodedEmail}`);
@@ -82,35 +72,23 @@ exports.handler = async function (event, context) {
   }
 };
 
-// Function to remove email from Google Sheets
-async function removeFromGoogleSheets(email) {
+// Function to remove email from Supabase
+async function removeFromSupabase(email) {
   try {
-    const sheets = getGoogleSheets();
+    // Update the status to 'unsubscribed' instead of deleting
+    // This is better for compliance and analytics
+    const { error } = await supabase
+      .from('leads')
+      .update({ status: 'unsubscribed' })
+      .eq('email', email);
     
-    // First, find the row with the email
-    const response = await sheets.spreadsheets.values.get({
-      spreadsheetId: SHEET_ID,
-      range: RANGE,
-    });
-
-    const rows = response.data.values || [];
-    const rowIndex = rows.findIndex(row => row[0] === email);
-
-    if (rowIndex !== -1) {
-      // Update the status to 'unsubscribed' instead of deleting
-      // This is better for compliance and analytics
-      await sheets.spreadsheets.values.update({
-        spreadsheetId: SHEET_ID,
-        range: `listing-pal!B${rowIndex + 1}`,
-        valueInputOption: 'RAW',
-        resource: {
-          values: [['unsubscribed']],
-        },
-      });
+    if (error) {
+      console.error('Supabase error:', error);
+      throw error;
     }
 
   } catch (error) {
-    console.error('Error removing from Google Sheets:', error);
+    console.error('Error removing from Supabase:', error);
     throw error;
   }
 }
