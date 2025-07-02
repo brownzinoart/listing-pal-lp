@@ -177,98 +177,113 @@ const emailTemplate = `<!DOCTYPE html>
                                 </tr>
                             </table>
 
-                            <!-- Benefit 1 -->
-                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="background-color: #f8fafc; border-radius: 12px; margin-bottom: 25px;">
-                                <tr>
-                                    <td style="padding: 25px; text-align: center;">
-                                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
-                                            <tr>
-                                                <td align="center" style="padding-bottom: 20px;">
-                                                    <table role="presentation" cellspacing="0" cellpadding="0" border="0">
-                                                        <tr>
-                                                            <td width="80" height="80" style="background: linear-gradient(135deg, #FFB6C1 0%, #00CED1 100%); background-color: #FFB6C1; border-radius: 8px; text-align: center; vertical-align: middle;">
-                                                                <span style="color: #ffffff; font-size: 32px; font-weight: bold;">⚡</span>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td style="text-align: center;">
-                                                    <h3 style="margin: 0 0 10px 0; color: #1f2937; font-size: 20px; font-weight: bold;">
-                                                        AgentSelect™ Integration
-                                                    </h3>
-                                                    <p style="margin: 0; color: #6b7280; font-size: 16px; line-height: 22px;">
-                                                        Stop guessing which model to use—our AI orchestration picks the right one automatically. Our proprietary stack chooses the best-suited model for every task, every time.
-                                                    </p>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                </tr>
-                            </table>
+                                                         <!-- Benefit 1 -->
+                             <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="background-color: #f8fafc; border-radius: 12px; margin-bottom: 25px;">
+                                 <tr>
+                                     <td style="padding: 25px; text-align: center;">
+                                         <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                             <tr>
+                                                 <td align="center" style="padding-bottom: 20px;">
+                                                     <table role="presentation" cellspacing="0" cellpadding="0" border="0" class="benefit-icon-container">
+                                                         <tr>
+                                                             <td width="80" height="80" style="background: linear-gradient(135deg, #FFB6C1 0%, #00CED1 100%); background-color: #FFB6C1; border-radius: 8px; text-align: center; vertical-align: middle;">
+                                                                 <img src="https://storage.mlcdn.com/account_image/1628143/H7yK6SvxrFu1JcmTTeyEdpgNqL1DV4RvXImxFxrS.png"
+                                                                 alt="Icon"
+                                                                 width="42"
+                                                                 height="42"
+                                                                 class="benefit-icon"
+                                                                 style="display: block; margin: 13px auto;">
+                                                             </td>
+                                                         </tr>
+                                                     </table>
+                                                 </td>
+                                             </tr>
+                                             <tr>
+                                                 <td style="text-align: center;">
+                                                     <h3 style="margin: 0 0 10px 0; color: #1f2937; font-size: 20px; font-weight: bold;">
+                                                         AgentSelect™ Integration
+                                                     </h3>
+                                                     <p style="margin: 0; color: #6b7280; font-size: 16px; line-height: 22px;" class="mobile-font-small">
+                                                         Stop guessing which model to use—our AI orchestration picks the right one automatically. Our proprietary stack chooses the best-suited model for every task, every time.
+                                                     </p>
+                                                 </td>
+                                             </tr>
+                                         </table>
+                                     </td>
+                                 </tr>
+                             </table>
 
-                            <!-- Benefit 2 -->
-                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="background-color: #f8fafc; border-radius: 12px; margin-bottom: 25px;">
-                                <tr>
-                                    <td style="padding: 25px; text-align: center;">
-                                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
-                                            <tr>
-                                                <td align="center" style="padding-bottom: 20px;">
-                                                    <table role="presentation" cellspacing="0" cellpadding="0" border="0">
-                                                        <tr>
-                                                            <td width="80" height="80" style="background: linear-gradient(135deg, #00CED1 0%, #FFB6C1 100%); background-color: #00CED1; border-radius: 8px; text-align: center; vertical-align: middle;">
-                                                                <span style="color: #ffffff; font-size: 32px; font-weight: bold;">📊</span>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td style="text-align: center;">
-                                                    <h3 style="margin: 0 0 10px 0; color: #1f2937; font-size: 20px; font-weight: bold;">
-                                                        Market-Tested Content
-                                                    </h3>
-                                                    <p style="margin: 0; color: #6b7280; font-size: 16px; line-height: 22px;">
-                                                        Our campaigns won't just be AI-generated—they'll be trained on high-converting real estate copy that actually sells properties. You'd be getting proven formulas, not experiments.
-                                                    </p>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                </tr>
-                            </table>
+                                                         <!-- Benefit 2 -->
+                             <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="background-color: #f8fafc; border-radius: 12px; margin-bottom: 25px;">
+                                 <tr>
+                                     <td style="padding: 25px; text-align: center;">
+                                         <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                             <tr>
+                                                 <td align="center" style="padding-bottom: 20px;">
+                                                     <table role="presentation" cellspacing="0" cellpadding="0" border="0" class="benefit-icon-container">
+                                                         <tr>
+                                                             <td width="80" height="80" style="background: linear-gradient(135deg, #00CED1 0%, #FFB6C1 100%); background-color: #00CED1; border-radius: 8px; text-align: center; vertical-align: middle;">
+                                                                 <img src="https://mcusercontent.com/1ab0d36c6a26a981d20907640/images/5b70b74a-406c-9ec8-6036-a685347ae07b.png"
+                                                                 alt="Icon"
+                                                                 width="32"
+                                                                 height="32"
+                                                                 class="benefit-icon"
+                                                                 style="display: block; margin: 13px auto;">
+                                                             </td>
+                                                         </tr>
+                                                     </table>
+                                                 </td>
+                                             </tr>
+                                             <tr>
+                                                 <td style="text-align: center;">
+                                                     <h3 style="margin: 0 0 10px 0; color: #1f2937; font-size: 20px; font-weight: bold;">
+                                                         Market-Tested Content
+                                                     </h3>
+                                                     <p style="margin: 0; color: #6b7280; font-size: 16px; line-height: 22px;" class="mobile-font-small">
+                                                         Our campaigns won't just be AI-generated—they'll be trained on high-converting real estate copy that actually sells properties. You'd be getting proven formulas, not experiments.
+                                                     </p>
+                                                 </td>
+                                             </tr>
+                                         </table>
+                                     </td>
+                                 </tr>
+                             </table>
 
-                            <!-- Benefit 3 -->
-                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="background-color: #f8fafc; border-radius: 12px;">
-                                <tr>
-                                    <td style="padding: 25px; text-align: center;">
-                                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
-                                            <tr>
-                                                <td align="center" style="padding-bottom: 20px;">
-                                                    <table role="presentation" cellspacing="0" cellpadding="0" border="0">
-                                                        <tr>
-                                                            <td width="80" height="80" style="background: linear-gradient(135deg, #FFB6C1 0%, #00CED1 100%); background-color: #FFB6C1; border-radius: 8px; text-align: center; vertical-align: middle;">
-                                                                <span style="color: #ffffff; font-size: 32px; font-weight: bold;">🚀</span>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td style="text-align: center;">
-                                                    <h3 style="margin: 0 0 10px 0; color: #1f2937; font-size: 20px; font-weight: bold;">
-                                                        Skip the Learning Curve
-                                                    </h3>
-                                                    <p style="margin: 0; color: #6b7280; font-size: 16px; line-height: 22px;">
-                                                        While others spend months figuring out AI prompts and tools, you'll be generating professional campaigns from day one. We've done the heavy lifting—you get the results.
-                                                    </p>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                </tr>
-                            </table>
+                                                         <!-- Benefit 3 -->
+                             <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="background-color: #f8fafc; border-radius: 12px;">
+                                 <tr>
+                                     <td style="padding: 25px; text-align: center;">
+                                         <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                             <tr>
+                                                 <td align="center" style="padding-bottom: 20px;">
+                                                     <table role="presentation" cellspacing="0" cellpadding="0" border="0" class="benefit-icon-container">
+                                                         <tr>
+                                                             <td width="80" height="80" style="background: linear-gradient(135deg, #FFB6C1 0%, #00CED1 100%); background-color: #FFB6C1; border-radius: 8px; text-align: center; vertical-align: middle;">
+                                                                 <img src="https://storage.mlcdn.com/account_image/1628143/dEboP0G6wiK7KYLyTJulph2vUy5hiJMKeE93GJrF.png"
+                                                                 alt="Icon"
+                                                                 width="32"
+                                                                 height="32"
+                                                                 class="benefit-icon"
+                                                                 style="display: block; margin: 13px auto;">
+                                                             </td>
+                                                         </tr>
+                                                     </table>
+                                                 </td>
+                                             </tr>
+                                             <tr>
+                                                 <td style="text-align: center;">
+                                                     <h3 style="margin: 0 0 10px 0; color: #1f2937; font-size: 20px; font-weight: bold;">
+                                                         Skip the Learning Curve
+                                                     </h3>
+                                                     <p style="margin: 0; color: #6b7280; font-size: 16px; line-height: 22px;" class="mobile-font-small">
+                                                         While others spend months figuring out AI prompts and tools, you'll be generating professional campaigns from day one. We've done the heavy lifting—you get the results.
+                                                     </p>
+                                                 </td>
+                                             </tr>
+                                         </table>
+                                     </td>
+                                 </tr>
+                             </table>
 
                         </td>
                     </tr>
@@ -329,13 +344,13 @@ const emailTemplate = `<!DOCTYPE html>
                                 </tr>
                                 <tr>
                                     <td align="center" style="padding-bottom: 15px;">
-                                        <a href="mailto:listingpalinfo@gmail.com" style="color: #9ca3af; text-decoration: none; margin: 0 10px; font-size: 13px;">Contact Us</a>
-                                        <span style="color: #9ca3af; margin: 0 5px;">|</span>
-                                        <a href="https://listingpal.netlify.app/privacy.html" target="_blank" style="color: #9ca3af; text-decoration: none; margin: 0 10px; font-size: 13px;">Privacy</a>
-                                        <span style="color: #9ca3af; margin: 0 5px;">|</span>
-                                        <a href="https://listingpal.netlify.app/terms.html" target="_blank" style="color: #9ca3af; text-decoration: none; margin: 0 10px; font-size: 13px;">Terms</a>
-                                        <span style="color: #9ca3af; margin: 0 5px;">|</span>
-                                        <a href="{$unsubscribe}" style="color: #9ca3af; text-decoration: none; margin: 0 10px; font-size: 13px;">Unsubscribe</a>
+                                                                                 <a href="mailto:listingpalinfo@gmail.com" style="color: #9ca3af; text-decoration: none; margin: 0 10px; font-size: 13px;">Contact Us</a>
+                                         <span style="color: #9ca3af; margin: 0 5px;">|</span>
+                                         <a href="https://listingpal.netlify.app/privacy.html" target="_blank" style="color: #9ca3af; text-decoration: none; margin: 0 10px; font-size: 13px;">Privacy (Updated July 2025)</a>
+                                         <span style="color: #9ca3af; margin: 0 5px;">|</span>
+                                         <a href="https://listingpal.netlify.app/terms.html" target="_blank" style="color: #9ca3af; text-decoration: none; margin: 0 10px; font-size: 13px;">Terms (Updated July 2025)</a>
+                                         <span style="color: #9ca3af; margin: 0 5px;">|</span>
+                                         <a href="{$unsubscribe}" style="color: #9ca3af; text-decoration: none; margin: 0 10px; font-size: 13px;">Unsubscribe</a>
                                     </td>
                                 </tr>
                                 <tr>
