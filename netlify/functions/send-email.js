@@ -41,6 +41,11 @@ async function addLeadToSupabase(email) {
 
 // The main handler function for the Netlify Function
 exports.handler = async function (event, context) {
+  console.log('Function invoked, method:', event.httpMethod);
+  console.log('Environment check - RESEND_API_KEY exists:', !!RESEND_API_KEY);
+  console.log('Environment check - SUPABASE_URL exists:', !!supabaseUrl);
+  console.log('Environment check - SUPABASE_ANON_KEY exists:', !!supabaseKey);
+  
   // Only allow POST requests
   if (event.httpMethod !== 'POST') {
     return {
@@ -50,7 +55,9 @@ exports.handler = async function (event, context) {
   }
 
   try {
+    console.log('Parsing request body...');
     const { email } = JSON.parse(event.body);
+    console.log('Email received:', email);
 
     if (!email) {
       return {
@@ -59,9 +66,20 @@ exports.handler = async function (event, context) {
       };
     }
 
+    // Check if required environment variables exist
+    if (!RESEND_API_KEY) {
+      console.error('RESEND_API_KEY not found');
+      return {
+        statusCode: 500,
+        body: JSON.stringify({ message: 'Server configuration error: Missing API key' }),
+      };
+    }
+
+    console.log('Initializing Resend...');
     // Initialize Resend with your API key
     const resend = new Resend(RESEND_API_KEY);
 
+    console.log('Reading email template...');
     // Read the HTML template from welcome-email.html
     const templatePath = path.resolve(__dirname, '../../welcome-email.html');
     let htmlBody = await fs.readFile(templatePath, 'utf-8');
@@ -74,9 +92,11 @@ exports.handler = async function (event, context) {
     const unsubscribeUrl = `https://listingpal.netlify.app/.netlify/functions/unsubscribe?email=${encodeURIComponent(email)}`;
     htmlBody = htmlBody.replace('{$unsubscribe}', unsubscribeUrl);
 
+    console.log('Adding lead to Supabase...');
     // Capture the lead in Supabase
     await addLeadToSupabase(email);
 
+    console.log('Sending email via Resend...');
     // Send the email using Resend
     const { data, error } = await resend.emails.send({
       from: 'Wally from ListingPal <wally@listingpal.info>',
@@ -95,6 +115,7 @@ exports.handler = async function (event, context) {
       };
     }
 
+    console.log('Email sent successfully!');
     // Send a success response back to the frontend
     return {
       statusCode: 200,
@@ -102,10 +123,14 @@ exports.handler = async function (event, context) {
     };
 
   } catch (exception) {
-    console.error({ exception });
+    console.error('Exception caught:', { exception, message: exception.message, stack: exception.stack });
     return {
       statusCode: 500,
-      body: JSON.stringify({ message: 'An unexpected error occurred.' }),
+      body: JSON.stringify({ 
+        message: 'An unexpected error occurred.', 
+        error: exception.message,
+        debug: process.env.NODE_ENV === 'development' ? exception.stack : undefined
+      }),
     };
   }
 };
