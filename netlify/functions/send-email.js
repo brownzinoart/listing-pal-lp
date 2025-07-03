@@ -118,11 +118,11 @@ const emailTemplate = `<!DOCTYPE html>
                             <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
                                 <tr>
                                     <td align="center">
-                                                                <img src="https://listingpal.netlify.app/logo.png"
+                                                                <img src="https://listingpal.netlify.app/logo_email.png"
                         alt="ListingPal Logo"
                         width="200"
                         height="auto"
-                        style="display: inline-block; max-width: 100%; height: auto; vertical-align: middle; ">
+                        style="display: inline-block; max-width: 100%; height: auto; vertical-align: middle; filter: brightness(0) saturate(100%);">
                                     </td>
                                 </tr>
                             </table>
@@ -328,11 +328,11 @@ const emailTemplate = `<!DOCTYPE html>
                             <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
                                 <tr>
                                     <td align="center" style="padding-bottom: 20px;">
-                                                                                 <img src="https://listingpal.netlify.app/logo.png"
+                                                                                 <img src="https://listingpal.netlify.app/logo_email.png"
                                          alt="ListingPal Footer Logo"
                                          width="150"
                                          height="auto"
-                                         style="display: block; max-width: 100%; height: auto; ">
+                                         style="display: block; max-width: 100%; height: auto; filter: brightness(0) saturate(100%);">
                                     </td>
                                 </tr>
                                 <tr>
