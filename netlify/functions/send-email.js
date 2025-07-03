@@ -118,11 +118,11 @@ const emailTemplate = `<!DOCTYPE html>
                             <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
                                 <tr>
                                     <td align="center">
-                                        <img src="https://listingpal.netlify.app/logo.png"
-                                        alt="ListingPal Logo"
-                                        width="200"
-                                        height="auto"
-                                        style="display: inline-block; max-width: 100%; height: auto; vertical-align: middle; filter: brightness(0) saturate(100%);">
+                                                                <img src="https://listingpal.netlify.app/logo.png"
+                        alt="ListingPal Logo"
+                        width="200"
+                        height="auto"
+                        style="display: inline-block; max-width: 100%; height: auto; vertical-align: middle; filter: brightness(0) saturate(100%);">
                                     </td>
                                 </tr>
                             </table>
@@ -332,7 +332,7 @@ const emailTemplate = `<!DOCTYPE html>
                                          alt="ListingPal Footer Logo"
                                          width="150"
                                          height="auto"
-                                         style="display: block; max-width: 100%; height: auto; filter: brightness(0) saturate(100%);">
+                                         style="display: block; max-width: 100%; height: auto; background-color: white; padding: 8px; border-radius: 6px;">
                                     </td>
                                 </tr>
                                 <tr>
