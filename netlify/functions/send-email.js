@@ -338,7 +338,7 @@ const emailTemplate = `<!DOCTYPE html>
                             <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
                                 <tr>
                                     <td align="center" style="padding-bottom: 20px;">
-                                                                                 <img src="https://listingpal.netlify.app/welcome_logo.png"
+                                                                                 <img src="https://i.imgur.com/vseFklB.png?v=2"
                                          alt="ListingPal Footer Logo"
                                          width="150"
                                          height="auto"
@@ -357,9 +357,9 @@ const emailTemplate = `<!DOCTYPE html>
                                     <td align="center" style="padding-bottom: 15px;">
                                                                                  <a href="mailto:listingpalinfo@gmail.com" style="color: #9ca3af; text-decoration: none; margin: 0 10px; font-size: 13px;">Contact Us</a>
                                          <span style="color: #9ca3af; margin: 0 5px;">|</span>
-                                         <a href="https://listingpal.netlify.app/privacy.html" target="_blank" style="color: #9ca3af; text-decoration: none; margin: 0 10px; font-size: 13px;">Privacy (Updated July 2025)</a>
+                                         <a href="https://listingpal.netlify.app/privacy.html" target="_blank" style="color: #9ca3af; text-decoration: none; margin: 0 10px; font-size: 13px;">Privacy</a>
                                          <span style="color: #9ca3af; margin: 0 5px;">|</span>
-                                         <a href="https://listingpal.netlify.app/terms.html" target="_blank" style="color: #9ca3af; text-decoration: none; margin: 0 10px; font-size: 13px;">Terms (Updated July 2025)</a>
+                                         <a href="https://listingpal.netlify.app/terms.html" target="_blank" style="color: #9ca3af; text-decoration: none; margin: 0 10px; font-size: 13px;">Terms</a>
                                          <span style="color: #9ca3af; margin: 0 5px;">|</span>
                                          <a href="{$unsubscribe}" style="color: #9ca3af; text-decoration: none; margin: 0 10px; font-size: 13px;">Unsubscribe</a>
                                     </td>
