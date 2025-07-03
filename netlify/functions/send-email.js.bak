@@ -122,7 +122,7 @@ const emailTemplate = `<!DOCTYPE html>
                         alt="ListingPal Logo"
                         width="200"
                         height="auto"
-                        style="display: inline-block; max-width: 100%; height: auto; vertical-align: middle; filter: brightness(0) saturate(100%);">
+                        style="display: inline-block; max-width: 100%; height: auto; vertical-align: middle; ">
                                     </td>
                                 </tr>
                             </table>
@@ -332,7 +332,7 @@ const emailTemplate = `<!DOCTYPE html>
                                          alt="ListingPal Footer Logo"
                                          width="150"
                                          height="auto"
-                                         style="display: block; max-width: 100%; height: auto; background-color: white; padding: 8px; border-radius: 6px;">
+                                         style="display: block; max-width: 100%; height: auto; ">
                                     </td>
                                 </tr>
                                 <tr>
