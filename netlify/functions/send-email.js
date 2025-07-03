@@ -238,7 +238,7 @@ const emailTemplate = `<!DOCTYPE html>
                                                                  width="32"
                                                                  height="32"
                                                                  class="benefit-icon"
-                                                                 style="display: block; margin: 13px auto;">
+                                                                 style="max-width: 32px; padding-bottom: 0; display: block !important; vertical-align: bottom; border: 0; height: auto; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; margin: 13px auto; filter: brightness(0) invert(1);">
                                                              </td>
                                                          </tr>
                                                      </table>
@@ -342,7 +342,7 @@ const emailTemplate = `<!DOCTYPE html>
                                          alt="ListingPal Footer Logo"
                                          width="150"
                                          height="auto"
-                                         style="max-width: 150px; padding-bottom: 0; display: block !important; vertical-align: bottom; border: 0; height: auto; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic;"
+                                         style="max-width: 150px; padding-bottom: 0; display: inline !important; vertical-align: bottom; border: 0; height: auto; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic;"
                                          class="footer-logo">
                                     </td>
                                 </tr>
