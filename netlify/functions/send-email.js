@@ -45,6 +45,15 @@ const emailTemplate = `<!DOCTYPE html>
             outline: none;
             text-decoration: none;
         }
+        img, a img {
+            border: 0;
+            height: auto;
+            outline: none;
+            text-decoration: none;
+        }
+        .main-logo, .footer-logo, .benefit-icon {
+            vertical-align: bottom;
+        }
 
         /* Main styles */
         body {
@@ -118,11 +127,12 @@ const emailTemplate = `<!DOCTYPE html>
                             <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
                                 <tr>
                                     <td align="center">
-                                                                <img src="https://listingpal.netlify.app/welcome_logo.png"
+                                                                <img src="https://i.imgur.com/vseFklB.png?v=2"
                         alt="ListingPal Logo"
                         width="200"
                         height="auto"
-                        style="display: inline-block; max-width: 100%; height: auto; vertical-align: middle;">
+                        style="max-width: 200px; padding-bottom: 0; display: inline !important; vertical-align: bottom; border: 0; height: auto; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic;"
+                        class="main-logo">
                                     </td>
                                 </tr>
                             </table>
@@ -192,7 +202,7 @@ const emailTemplate = `<!DOCTYPE html>
                                                                  width="42"
                                                                  height="42"
                                                                  class="benefit-icon"
-                                                                 style="display: block; margin: 13px auto;">
+                                                                 style="max-width: 42px; padding-bottom: 0; display: block !important; vertical-align: bottom; border: 0; height: auto; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; margin: 13px auto; filter: brightness(0) invert(1);">
                                                              </td>
                                                          </tr>
                                                      </table>
@@ -264,7 +274,7 @@ const emailTemplate = `<!DOCTYPE html>
                                                                  width="32"
                                                                  height="32"
                                                                  class="benefit-icon"
-                                                                 style="display: block; margin: 13px auto;">
+                                                                 style="max-width: 32px; padding-bottom: 0; display: block !important; vertical-align: bottom; border: 0; height: auto; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; margin: 13px auto; filter: brightness(0) invert(1);">
                                                              </td>
                                                          </tr>
                                                      </table>
@@ -332,7 +342,8 @@ const emailTemplate = `<!DOCTYPE html>
                                          alt="ListingPal Footer Logo"
                                          width="150"
                                          height="auto"
-                                         style="display: block; max-width: 100%; height: auto;">
+                                         style="max-width: 150px; padding-bottom: 0; display: block !important; vertical-align: bottom; border: 0; height: auto; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic;"
+                                         class="footer-logo">
                                     </td>
                                 </tr>
                                 <tr>
