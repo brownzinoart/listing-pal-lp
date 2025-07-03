@@ -332,7 +332,7 @@ const emailTemplate = `<!DOCTYPE html>
                                          alt="ListingPal Footer Logo"
                                          width="150"
                                          height="auto"
-                                         style="display: block; max-width: 100%; height: auto; ">
+                                         style="display: block; max-width: 100%; height: auto; background-color: white; padding: 8px; border-radius: 6px;">
                                     </td>
                                 </tr>
                                 <tr>
