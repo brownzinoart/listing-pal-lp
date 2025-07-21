@@ -109,6 +109,12 @@
             box-sizing: border-box;
         }
         
+        /* Override Calendly default styles */
+        /* .calendly-inline-widget iframe {
+            width: 100% !important;
+            border-radius: 1rem !important;
+        } */
+        /*
         .calendly-inline-widget {
             width: 100% !important;
             min-width: 0 !important;
@@ -119,12 +125,7 @@
             margin-left: auto;
             margin-right: auto;
         }
-        
-        /* Override Calendly default styles */
-        .calendly-inline-widget iframe {
-            width: 100% !important;
-            border-radius: 1rem !important;
-        }
+        */
 
         @media (max-width: 640px) {
             .calendly-container {
@@ -403,7 +404,8 @@
                 Schedule a personalized 30-minute session to see how ListingPal can transform your listing process and boost your reach.
             </p>
             <div class="calendly-container fade-up calendly-container-custom">
-                <div class="calendly-inline-widget calendly-iframe" data-url="https://calendly.com/listingpalinfo/30min?hide_event_type_details=1&hide_gdpr_banner=1"></div>
+                <!-- Calendly embed updated for free plan: default embed code, no custom params -->
+                <div class="calendly-inline-widget" data-url="https://calendly.com/listingpalinfo/30min" style="min-width:320px;height:700px;"></div>
                 <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
             </div>
         </div>
